@@ -6,10 +6,5 @@
 # Virtual environment
 venv/
 
-# Python files
-sitoProgettoIsw/sitoProgettoIsw/__pycache__/
-sitoProgettoIsw\sitoProgettoIsw\__pycache__\
-sitoProgettoIsw/sitoProgettoIsw/__pycache__/__init__.cpython-311.pyc
-sitoProgettoIsw/sitoProgettoIsw/__pycache__/settings.cpython-311.pyc
-sitoProgettoIsw/sitoProgettoIsw/__pycache__/urls.cpython-311.pyc
-sitoProgettoIsw/sitoProgettoIsw/__pycache__/wsgi.cpython-311.pyc
+# Django files
+__pycache__/
