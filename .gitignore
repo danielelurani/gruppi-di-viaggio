@@ -1,0 +1,7 @@
+# Cartelle IDEs
+.vs/
+.vscode/
+.idea/
+
+# Virtual environment
+venv/
