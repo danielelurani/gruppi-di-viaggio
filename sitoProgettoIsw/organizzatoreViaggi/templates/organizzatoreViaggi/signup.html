@@ -8,7 +8,7 @@
     <head>
 
         <meta charset="UTF-8">
-        <title>Login</title>
+        <title>Signup</title>
         <link rel="stylesheet" href="{% static 'css/login.css'%}">
 
     </head>
@@ -17,9 +17,23 @@
 
         <div class="loginFormContainer">
 
-            <h1>Login</h1>
+            <h1>Signup</h1>
 
             <form method="post">
+
+                <div class="textField">
+
+                    <input type="text" required>
+                    <label>Nome</label>
+
+                </div>
+
+                <div class="textField">
+
+                    <input type="text" required>
+                    <label>Cognome</label>
+
+                </div>
 
                 <div class="textField">
 
@@ -35,11 +49,11 @@
 
                 </div>
 
-                <input type="submit" value="Login">
+                <input type="submit" value="Signup">
 
                 <div class="signupLink">
 
-                    <a href="{% url 'signup' %}">Not a member? Signup!</a>
+                    <a href="{% url 'login' %}">Already a member? Login!</a>
 
                 </div>
             </form>
