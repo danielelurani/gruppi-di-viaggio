@@ -17,12 +17,60 @@
                     <img src="{% static 'images/plane_icon.png' %}" />
                     <p>I miei viaggi</p>
                 </a>
-                <h1>USER PAGE</h1>
+                <h1>PAGINA UTENTE</h1>
                 <a href="#">
                     <img src="{% static 'images/logout_icon.png' %}" />
-                    <p>Logout</p>
+                    <p>Log-out</p>
                 </a>
             </nav>
+
+            <div class="main">
+                <div class="main-sx">
+                    <div class="user-informations">
+                        <div class="user-informations-title">
+                            <img src="{% static 'images/id_card_icon.png' %}" />
+                            <h2>INFORMAZIONI UTENTE</h2>
+                        </div>
+
+                        <h3>Nome:</h3>
+                        <p>Riccardo</p>
+                        <h3>Cognome:</h3>
+                        <p>Senes</p>
+                        <h3>Email:</h3>
+                        <p>rc@rc.com</p>
+                        <h3>Password:</h3>
+                        <p>************</p>
+                    </div>
+                </div>
+
+                <div class="main-dx">
+                    <form method="post">
+                        <h2>CREA UN NUOVO VIAGGIO</h2>
+
+                        <div class="textField">
+                            <input type="text" required>
+                            <label>Nome viaggio:</label>
+                        </div>
+
+                        <div class="textField">
+                            <input type="text" required>
+                            <label>Destinazione:</label>
+                        </div>
+
+                        <div class="textField">
+                            <input type="text" required>
+                            <label>Itinerario:</label>
+                        </div>
+
+                        <div class="textField">
+                            <input type="text" required>
+                            <label>Date:</label>
+                        </div>
+
+                        <input type="submit" value="AGGIUNGI VIAGGIO">
+                    </form>
+                </div>
+            </div>
         </div>
     </body>
 </html>
