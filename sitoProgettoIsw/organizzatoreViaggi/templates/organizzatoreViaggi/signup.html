@@ -9,15 +9,32 @@
 
         <meta charset="UTF-8">
         <title>Registrati</title>
-        <link rel="stylesheet" href="{% static 'css/login.css'%}">
+        <link rel="stylesheet" href="{% static 'css/signup.css'%}">
 
     </head>
     
     <body>
 
-        <div class="loginFormContainer">
+        <div class="signupFormContainer">
 
             <h1>Registrati</h1>
+
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{form.as_p}}
+
+                <input type="submit" value="Registrati">
+
+                <div class="signupLink">
+
+                    <a href="{% url 'login' %}">Non sei registrato? Registrati!</a>
+
+                </div>
+
+            </form>
+            
+
+            <!--<h1>Registrati</h1>
 
             <form method="post">
 
@@ -56,7 +73,7 @@
                     <a href="{% url 'login' %}">Sei già registrato? Accedi!</a>
 
                 </div>
-            </form>
+            </form>-->
 
         </div>
 
