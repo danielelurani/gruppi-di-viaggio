@@ -7,3 +7,6 @@ def login_view(request):
 
 def signup_view(request):
     return render(request, 'organizzatoreViaggi/signup.html')
+
+def userHomePage_view(request):
+    return render(request, 'organizzatoreViaggi/userHomePage.html')

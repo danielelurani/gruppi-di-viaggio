@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="it">
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>User Home Page</title>
+        <link rel="stylesheet" href="{% static 'css/userHomePage.css'%}">
+    </head>
+
+    <body>
+        <div class="page-container">
+            <nav>
+                <a href="#">
+                    <img src="{% static 'images/plane_icon.png' %}" />
+                    <p>I miei viaggi</p>
+                </a>
+                <h1>USER PAGE</h1>
+                <a href="#">
+                    <img src="{% static 'images/logout_icon.png' %}" />
+                    <p>Logout</p>
+                </a>
+            </nav>
+        </div>
+    </body>
+</html>
