@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #2980b9, #8e44ad);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.page-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 600px;
+    width: 600px;
+    background: white;
+    border-radius: 10px;
+}
+
+nav {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: dashed 1.5px;
+}
+
+nav h1 {
+    height: 30px;
+    width: 40%;
+    font-size: 26px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid silver;
+}
+
+nav a {
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: .4s;
+}
+
+nav a img {
+    height: 36px;
+    width: 36px;
+    margin-bottom: -22px;
+
+    --color: #2980B9;   /* the color of the border */
+    --border: 2px;      /* the thickness of the border */
+    --offset: 10px;     /* control the movement of the border */
+    --gap: 2px;         /* the gap on hover */
+
+    border-radius: 50%;
+    cursor: pointer;
+    padding: calc(var(--border) + var(--gap));
+    border: var(--offset) solid #0000;
+    --_m: radial-gradient(50% 50%, #000 calc(100% - var(--offset)),#0000 calc(100% - var(--border)));
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    --_g: #0000 calc(99% - var(--border)), var(--color) calc(100% - var(--border)) 99%,#0000;
+    --_s: var(--offset);
+    --_r: 100% 100% at;
+
+    background:
+        radial-gradient(var(--_r) 0    0   ,var(--_g)) calc(100% + var(--_s)) calc(100% + var(--_s)),
+        radial-gradient(var(--_r) 100% 0   ,var(--_g)) calc(0%   - var(--_s)) calc(100% + var(--_s)),
+        radial-gradient(var(--_r) 0    100%,var(--_g)) calc(100% + var(--_s)) calc(0%   - var(--_s)),
+        radial-gradient(var(--_r) 100% 100%,var(--_g)) calc(0%   - var(--_s)) calc(0%   - var(--_s));
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    transition: .4s;
+}
+
+nav a:hover img {
+    --_s: 0px
+}
+
+nav a p {
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.main {
+    height: 80%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.main-sx {
+    height: 100%;
+    width: 50%;
+    border-right: dashed 1.5px;
+}
+
+.main-sx .user-informations .user-informations-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-sx .user-informations {
+    margin-top: 30%;
+}
+
+.main-sx .user-informations h2 {
+    font-size: 14px;
+}
+
+.main-sx .user-informations img {
+    height: 40px;
+    width: 40px;
+    margin-right: 5%;
+}
+
+.main-sx h3 {
+    text-align: left;
+    color: black;
+    text-transform: uppercase;
+    font-size: 18px;
+    text-decoration: underline;
+    margin-bottom: -10px;
+}
+
+.main-sx p {
+    text-align: left;
+    color: black;
+    font-size: 15px;
+}
+
+.main-dx {
+    height: 100%;
+    width: 100%;
+}
+
+.main-dx form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 102%;
+    margin-top: 5%;
+    margin-left: 10px;
+}
+
+.main-dx form h2 {
+    text-align: center;
+    width: 90%;
+    font-size: 20px;
+    border-bottom: 1px  solid;
+}
+
+form .textField{
+    position: relative;
+    border-bottom: 2px solid #ADADAD;
+    margin: 8px 0;
+}
+
+.textField input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.textField label {
+    position: absolute;
+    top: 60%;
+    left: 2px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.textField span::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #2691d9;
+    transition: .5s;
+}
+
+.textField input:focus ~ label,
+.textField input:valid ~ label {
+    top: -5px;
+    color: #2691d9;
+}
+
+.textField input:focus ~ span::before,
+.textField input:valid ~ span::before {
+    width: 100%;
+}
+
+input[type="submit"] {
+    width: 80%;
+    height: 50px;
+    border: 4px solid;
+    background: black;
+    border-radius: 20px;
+    margin-top: 30px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+
+input[type="submit"]:hover {
+    border-color: #8e44ad;
+    transition: .5s;
+}
