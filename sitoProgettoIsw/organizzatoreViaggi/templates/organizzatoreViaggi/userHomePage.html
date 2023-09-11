@@ -40,10 +40,12 @@
                         <p>rc@rc.com</p>
                         <h3>Password:</h3>
                         <p>************</p>
+
+                        <img id="stamp-img" src="{% static 'images/stamp_icon.png' %}" />
                     </div>
                 </div>
 
-                <div class="main-dx">
+                <div class="main-c">
                     <form method="post">
                         <h2>CREA UN NUOVO VIAGGIO</h2>
 
@@ -67,8 +69,67 @@
                             <label>Date:</label>
                         </div>
 
+                        <!--
+                        {% csrf_token %}
+                        {{ form.newTripForm }}
+                        -->
+
                         <input type="submit" value="AGGIUNGI VIAGGIO">
                     </form>
+                </div>
+
+                <div class="main-dx">
+                    <div class="invitations-container">
+                        <div class="user-invitations-title">
+                            <h2>INVITI</br>RICEVUTI</h2>
+                            <img src="{% static 'images/invitation_icon.png' %}" />
+                        </div>
+
+                        <!-- INVITO -->
+                        <div class="alert alert-info alert-white rounded">
+                            <div class="buttons-and-title">
+                                <p class="invitation-sender">RichSenes</p>
+                                <div class="button-messages-container">
+                                    <button type="button" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                </div>
+                                <div class="icon">
+                                    <img src="{% static 'images/invitation_icon.png' %}" />
+                                </div>
+                            </div>
+                            <p class="invitation-message">Invito per un viaggio a <b>Roma</b>!</p>
+                        </div>
+
+                        <!-- INVITO -->
+                        <div class="alert alert-info alert-white rounded">
+                            <div class="buttons-and-title">
+                                <p class="invitation-sender">Berlusconi</p>
+                                <div class="button-messages-container">
+                                    <button type="button" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                </div>
+                                <div class="icon">
+                                    <img src="{% static 'images/invitation_icon.png' %}" />
+                                </div>
+                            </div>
+                            <p class="invitation-message">Invito per un viaggio a <b>Arcore</b>!</p>
+                        </div>
+
+                        <!-- INVITO -->
+                        <div class="alert alert-info alert-white rounded">
+                            <div class="buttons-and-title">
+                                <p class="invitation-sender">GiampyTek</p>
+                                <div class="button-messages-container">
+                                    <button type="button" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                </div>
+                                <div class="icon">
+                                    <img src="{% static 'images/invitation_icon.png' %}" />
+                                </div>
+                            </div>
+                            <p class="invitation-message">Invito per un viaggio a <b>I limiti dell'evoluto</b>!</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

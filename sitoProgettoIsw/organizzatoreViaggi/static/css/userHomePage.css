@@ -12,9 +12,12 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     height: 600px;
-    width: 600px;
+    width: 1000px;
     background: white;
     border-radius: 10px;
+    border-image: linear-gradient(120deg, #5b117a, #5cb3ec) 30;
+    border-width: 10px;
+    border-style: solid;
 }
 
 nav {
@@ -55,7 +58,7 @@ nav a img {
     margin-bottom: -22px;
 
     --color: #2980B9;   /* the color of the border */
-    --border: 2px;      /* the thickness of the border */
+    --border: 3px;      /* the thickness of the border */
     --offset: 10px;     /* control the movement of the border */
     --gap: 2px;         /* the gap on hover */
 
@@ -107,22 +110,23 @@ nav a p {
     border-right: dashed 1.5px;
 }
 
-.main-sx .user-informations .user-informations-title {
+.main-sx .user-informations .user-informations-title, .main-dx .invitations-container .user-invitations-title {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-left: -5%;
 }
 
 .main-sx .user-informations {
-    margin-top: 30%;
+    margin-top: 10%;
 }
 
-.main-sx .user-informations h2 {
+.main-sx .user-informations h2, .main-dx .invitations-container h2  {
     font-size: 14px;
 }
 
-.main-sx .user-informations img {
+.main-sx .user-informations .user-informations-title img {
     height: 40px;
     width: 40px;
     margin-right: 5%;
@@ -143,12 +147,20 @@ nav a p {
     font-size: 15px;
 }
 
-.main-dx {
-    height: 100%;
-    width: 100%;
+.main-sx #stamp-img {
+    height: 130px;
+    width: 130px;
+    margin-top: -5px;
 }
 
-.main-dx form {
+.main-c {
+    height: 100%;
+    width: 100%;
+    padding-right: 5%;
+    border-right: dashed 1.5px;
+}
+
+.main-c form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -158,17 +170,22 @@ nav a p {
     margin-left: 10px;
 }
 
-.main-dx form h2 {
+.main-c form h2 {
     text-align: center;
     width: 90%;
     font-size: 20px;
-    border-bottom: 1px  solid;
+    border-image: linear-gradient(120deg, #5b117a, #5cb3ec) 5;
+    border-width: 2px;
+    border-style: solid;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
 }
 
 form .textField{
     position: relative;
     border-bottom: 2px solid #ADADAD;
-    margin: 8px 0;
+    margin: 12px 0;
 }
 
 .textField input{
@@ -230,4 +247,148 @@ input[type="submit"] {
 input[type="submit"]:hover {
     border-color: #8e44ad;
     transition: .5s;
+}
+
+.main-dx {
+    height: 100%;
+    width: 50%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.main-dx .invitations-container img {
+    height: 60px;
+    width: 60px;
+    margin-left: 5%;
+}
+
+.main-dx .invitations-container h2 {
+    text-align: right;
+}
+
+.main-dx .invitations-container .user-invitations-title {
+    margin-bottom: 5%;
+}
+
+.alert {
+    height: 80px;
+}
+
+.buttons-and-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -10px;
+}
+
+.button-messages-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.close, .accept {
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .2;
+}
+
+.close:hover,.close:focus, .accept:hover,.accept:focus {
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .5;
+}
+
+.close:hover,.close:focus {
+    color: red;
+}
+
+.accept:hover,.accept:focus {
+    color: green;
+}
+
+button.close, button.accept {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-white {
+    background-image: linear-gradient(to bottom,#FFFFFF,#F9F9F9);
+    border-top-color: #d8d8d8;
+    border-bottom-color: #bdbdbd;
+    border-left-color: #cacaca;
+    border-right-color: #cacaca;
+    color: black;
+    padding-left: 61px;
+    position: relative;
+}
+
+.alert-white .icon {
+    text-align: center;
+    width: 40px;
+    height: 100%;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    border: 1px solid #bdbdbd;
+}
+
+.alert-white .icon:after {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    display: block;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border: 1px solid #bdbdbd;
+    position: absolute;
+    border-left: 0;
+    border-bottom: 0;
+    top: 50%;
+    right: -6px;
+    margin-top: -5px;
+    background: #fff;
+}
+
+.alert-white .icon img {
+    height: 30px;
+    width: 30px;
+    color: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.alert-white.alert-info .icon,.alert-white.alert-info .icon:after {
+    border-color: black;
+    background: #2980b9;
+}
+
+.alert .invitation-sender {
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+.alert .invitation-message {
+    margin-top: -7px;
+    font-size: 13px;
 }
