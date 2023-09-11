@@ -32,12 +32,18 @@
                             <h2>INFORMAZIONI UTENTE</h2>
                         </div>
 
-                        <h3>Nome:</h3>
+                        <h3>Username:</h3>
                         <p>{{ request.user }}</p>
+
+                        <h3>Nome:</h3>
+                        <p>Admin</p>
+
                         <h3>Cognome:</h3>
-                        <p>Senes</p>
+                        <p>Admin</p>
+
                         <h3>Email:</h3>
-                        <p>rc@rc.com</p>
+                        <p>admin@viaggi.com</p>
+
                         <h3>Password:</h3>
                         <p>************</p>
 
@@ -61,12 +67,12 @@
 
                         <div class="textField">
                             <input type="text" required>
-                            <label>Itinerario:</label>
+                            <label>Data partenza:</label>
                         </div>
 
                         <div class="textField">
                             <input type="text" required>
-                            <label>Date:</label>
+                            <label>Data ritorno:</label>
                         </div>
 
                         <!--
@@ -85,50 +91,68 @@
                             <img src="{% static 'images/invitation_icon.png' %}" />
                         </div>
 
-                        <!-- INVITO -->
-                        <div class="alert alert-info alert-white rounded">
-                            <div class="buttons-and-title">
-                                <p class="invitation-sender">RichSenes</p>
-                                <div class="button-messages-container">
-                                    <button type="button" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <div class="invitations-list">
+                            <!-- INVITO -->
+                            <div class="alert alert-info alert-white rounded">
+                                <div class="buttons-and-title">
+                                    <p class="invitation-sender">RichSenes</p>
+                                    <div class="button-messages-container">
+                                        <button type="button" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    </div>
+                                    <div class="icon">
+                                        <img src="{% static 'images/invitation_icon.png' %}" />
+                                    </div>
                                 </div>
-                                <div class="icon">
-                                    <img src="{% static 'images/invitation_icon.png' %}" />
-                                </div>
+                                <p class="invitation-message">Invito per un viaggio presso <b>Roma</b>!</p>
                             </div>
-                            <p class="invitation-message">Invito per un viaggio a <b>Roma</b>!</p>
+
+                            <!-- INVITO -->
+                            <div class="alert alert-info alert-white rounded">
+                                <div class="buttons-and-title">
+                                    <p class="invitation-sender">Berlusconi</p>
+                                    <div class="button-messages-container">
+                                        <button type="button" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    </div>
+                                    <div class="icon">
+                                        <img src="{% static 'images/invitation_icon.png' %}" />
+                                    </div>
+                                </div>
+                                <p class="invitation-message">Invito per un viaggio presso <b>Arcore</b>!</p>
+                            </div>
+
+                            <!-- INVITO -->
+                            <div class="alert alert-info alert-white rounded">
+                                <div class="buttons-and-title">
+                                    <p class="invitation-sender">GiampyTek</p>
+                                    <div class="button-messages-container">
+                                        <button type="button" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    </div>
+                                    <div class="icon">
+                                        <img src="{% static 'images/invitation_icon.png' %}" />
+                                    </div>
+                                </div>
+                                <p class="invitation-message">Invito per un viaggio presso <b>i limiti dell'evoluto</b>!</p>
+                            </div>
+
+                            <!-- INVITO -->
+                            <div class="alert alert-info alert-white rounded">
+                                <div class="buttons-and-title">
+                                    <p class="invitation-sender">Paolo</p>
+                                    <div class="button-messages-container">
+                                        <button type="button" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    </div>
+                                    <div class="icon">
+                                        <img src="{% static 'images/invitation_icon.png' %}" />
+                                    </div>
+                                </div>
+                                <p class="invitation-message">Invito per un viaggio presso <b>Palermo</b>!</p>
+                            </div>
                         </div>
 
-                        <!-- INVITO -->
-                        <div class="alert alert-info alert-white rounded">
-                            <div class="buttons-and-title">
-                                <p class="invitation-sender">Berlusconi</p>
-                                <div class="button-messages-container">
-                                    <button type="button" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                </div>
-                                <div class="icon">
-                                    <img src="{% static 'images/invitation_icon.png' %}" />
-                                </div>
-                            </div>
-                            <p class="invitation-message">Invito per un viaggio a <b>Arcore</b>!</p>
-                        </div>
-
-                        <!-- INVITO -->
-                        <div class="alert alert-info alert-white rounded">
-                            <div class="buttons-and-title">
-                                <p class="invitation-sender">GiampyTek</p>
-                                <div class="button-messages-container">
-                                    <button type="button" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                </div>
-                                <div class="icon">
-                                    <img src="{% static 'images/invitation_icon.png' %}" />
-                                </div>
-                            </div>
-                            <p class="invitation-message">Invito per un viaggio a <b>I limiti dell'evoluto</b>!</p>
-                        </div>
                     </div>
                 </div>
             </div>

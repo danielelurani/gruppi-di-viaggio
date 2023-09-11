@@ -18,6 +18,7 @@ body {
     border-image: linear-gradient(120deg, #5b117a, #5cb3ec) 30;
     border-width: 10px;
     border-style: solid;
+    overflow: hidden;
 }
 
 nav {
@@ -148,9 +149,11 @@ nav a p {
 }
 
 .main-sx #stamp-img {
-    height: 130px;
-    width: 130px;
+    height: 100px;
+    width: 100px;
     margin-top: -5px;
+    margin-right: 10px;
+    float: right;
 }
 
 .main-c {
@@ -256,6 +259,27 @@ input[type="submit"]:hover {
     margin-top: 5%;
 }
 
+.main-dx .invitations-container .invitations-list {
+    height: 380px;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2980b9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8e44ad;
+}
+
 .main-dx .invitations-container img {
     height: 60px;
     width: 60px;
@@ -296,6 +320,10 @@ input[type="submit"]:hover {
     color: #000;
     text-shadow: 0 1px 0 #fff;
     opacity: .2;
+}
+
+.accept {
+    margin-right: 5px;
 }
 
 .close:hover,.close:focus, .accept:hover,.accept:focus {
