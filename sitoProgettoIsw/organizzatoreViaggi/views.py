@@ -42,6 +42,10 @@ def signup_view(request):
             form = CreateUserForm(request.POST)
             if form.is_valid():
                 form.save()
+                return redirect('login')
+            else:
+                context = {'form': form}
+                return render(request, 'organizzatoreViaggi/signup.html', context)
 
         context = {'form': form}
         return render(request, 'organizzatoreViaggi/signup.html', context)

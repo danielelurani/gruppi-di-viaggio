@@ -19,15 +19,16 @@
 
             <h1>Registrati</h1>
 
-            <form method="POST" action="">
+            <form method="POST" action="" class="registration-form">
                 {% csrf_token %}
+
                 {{form.as_p}}
 
                 <input type="submit" value="Registrati">
 
                 <div class="signupLink">
 
-                    <a href="{% url 'login' %}">Non sei registrato? Registrati!</a>
+                    <a href="{% url 'login' %}">Sei già registrato? Accedi!</a>
 
                 </div>
 

@@ -30,35 +30,16 @@ body {
     box-sizing: border-box;
 }
 
-form.textField{
-
-    position: relative;
-    border-bottom: 2px solid #adadad;
-    margin: 30px 0;
-}
-
 input.textField{
 
-    width: 100%;
-    padding: 0 5px;
-    height: 40px;
-    font-size: 16px;
-    border: none;
-    background: none;
-    outline: none;
-    position: relative;
-    border-bottom: 2px solid #adadad;
-}
-  
-label.textField{
-  
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    color: #adadad;
-    transform: translateY(-50%);
-    font-size: 16px;
-    pointer-events: none;
+  width: 100%;
+  padding: 0 5px;
+  font-size: 16px;
+  background: none;
+  border: none;
+  outline: none;
+  position: relative;
+  border-bottom: 2px solid #adadad;
 }
 
 input[type="submit"]{
