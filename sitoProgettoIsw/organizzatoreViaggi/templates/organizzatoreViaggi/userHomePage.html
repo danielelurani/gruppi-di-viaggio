@@ -13,12 +13,12 @@
     <body>
         <div class="page-container">
             <nav>
-                <a href="#">
+                <a href="">
                     <img src="{% static 'images/plane_icon.png' %}" />
                     <p>I miei viaggi</p>
                 </a>
                 <h1>PAGINA UTENTE</h1>
-                <a href="#">
+                <a href="{% url 'logout' %}">
                     <img src="{% static 'images/logout_icon.png' %}" />
                     <p>Log-out</p>
                 </a>
@@ -33,7 +33,7 @@
                         </div>
 
                         <h3>Nome:</h3>
-                        <p>Riccardo</p>
+                        <p>{{ request.user }}</p>
                         <h3>Cognome:</h3>
                         <p>Senes</p>
                         <h3>Email:</h3>
