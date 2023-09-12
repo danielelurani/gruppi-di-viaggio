@@ -6,8 +6,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>User Home Page</title>
-        <link rel="stylesheet" href="{% static 'css/userHomePage.css'%}">
+        <title>Travel Details</title>
+        <link rel="stylesheet" href="{% static 'css/detailsTravel.css'%}">
     </head>
 
     <body>
@@ -24,6 +24,35 @@
                 </a>
             </nav>
 
+            <table>
+                <tr>
+                    <th>Partecipanti</th>
+                    <td>{{ request.user }}</td>
+                    <td>Persona</td>
+                    <td>Persona</td>
+                    <td>Persona</td>
+                </tr>
+                <tr>
+                    <th>Data</th>
+                    <td>25/01/2023</td>
+                </tr>
+                <tr>
+                    <th>Destinazione</th>
+                    <td>Luogo</td>
+                </tr>
+                <tr>
+                    <th>Itinerario</th>
+                    <td>Luogo</td>
+                    <td>Luogo</td>
+                    <td>Luogo</td>
+                    <td>Luogo</td>
+                    <td>Luogo</td>
+                    <td>Luogo</td>
+                    <td>Luogo</td>
+                    <td>Luogo</td>
+                    <td>Luogo</td>
+                </tr>
+            </table>
 
         </div>
     </body>
