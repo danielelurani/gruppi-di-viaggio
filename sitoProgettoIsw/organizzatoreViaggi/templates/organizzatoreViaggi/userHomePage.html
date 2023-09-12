@@ -52,34 +52,16 @@
                 </div>
 
                 <div class="main-c">
-                    <form method="post">
-                        <h2>CREA UN NUOVO VIAGGIO</h2>
-
-                        <div class="textField">
-                            <input type="text" required>
-                            <label>Nome viaggio:</label>
-                        </div>
-
-                        <div class="textField">
-                            <input type="text" required>
-                            <label>Destinazione:</label>
-                        </div>
-
-                        <div class="textField">
-                            <input type="text" required>
-                            <label>Data partenza:</label>
-                        </div>
-
-                        <div class="textField">
-                            <input type="text" required>
-                            <label>Data ritorno:</label>
-                        </div>
-
-                        <!--
+                    <form method="post" action="">
                         {% csrf_token %}
-                        {{ form.newTripForm }}
-                        -->
 
+                        <h2>CREA UN NUOVO VIAGGIO</h2>
+                         
+                        {{form.as_p}}
+                        
+                
+
+                        
                         <input type="submit" value="AGGIUNGI VIAGGIO">
                     </form>
                 </div>

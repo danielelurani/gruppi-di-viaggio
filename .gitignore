@@ -8,4 +8,3 @@ venv/
 
 # Django files
 __pycache__/
-sitoProgettoIsw/db.sqlite3

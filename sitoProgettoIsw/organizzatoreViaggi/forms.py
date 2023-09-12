@@ -2,7 +2,29 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 from django.forms import ModelForm, TextInput, PasswordInput, EmailInput
-from .models import CustomUser
+from .models import CustomUser, Travel
+
+class TravelForm(ModelForm):
+    class Meta:
+        model = Travel
+        fields = [
+            'name',
+            'destination',
+            'start_date',
+            'end_date'
+        ]
+        labels = {
+            'name': 'Nome Viaggio',
+            'destination': 'Destinazione',
+            'start_date': 'Data inizio',
+            'end_date': 'Data fine'
+        }
+        widgets = {
+                'start_date': forms.DateInput(attrs={'type': 'date', 'class': 'dateField'}),
+                'end_date': forms.DateInput(attrs={'type': 'date', 'class': 'dateField'}),
+                'name': forms.DateInput(attrs={'class': 'textField'}),
+                'destination': forms.DateInput(attrs={'class': 'textField'})
+            }
 
 class CreateUserForm(UserCreationForm):
 
@@ -18,7 +40,7 @@ class CreateUserForm(UserCreationForm):
             attrs = {
                 'class':'textField',
                 'type':'password',
-                }),
+                })
     )
 
     class Meta:

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateUserForm
+from .forms import CreateUserForm, TravelForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -52,7 +52,20 @@ def signup_view(request):
 
 @login_required(login_url = 'login')
 def userHomePage_view(request):
-    return render(request, 'organizzatoreViaggi/userHomePage.html')
+
+    if request.method == 'POST':
+        form = TravelForm(request.POST)
+        if form.is_valid():
+            travel = form.save(commit=False)
+            travel.save()
+            travel.participants.add(request.user)
+            travel.save()
+            return redirect('myTravels')
+    else:
+        form = TravelForm()
+
+    context = {'form': form}
+    return render(request, 'organizzatoreViaggi/userHomePage.html', context)
 
 @login_required(login_url = 'login')
 def detailsTravel_view(request):
