@@ -1,0 +1,270 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+        <title>My Travels Page</title>
+        <link rel="stylesheet" href="{% static 'css/myTravels.css'%}">
+</head>
+
+<body>
+    <div class="page-container">
+        <nav>
+            <a href="">
+                <img src="{% static 'images/home_icon.png' %}" />
+                <p>Pagina utente</p>
+            </a>
+            <h1>I MIEI VIAGGI</h1>
+            <a href="{% url 'logout' %}">
+                <img src="{% static 'images/logout_icon.png' %}" />
+                <p>Log-out</p>
+            </a>
+        </nav>
+
+        <div class="main">
+            <div class="trip-container">
+                <div class="trip trip-info trip-white">
+                    <div class="lateral-delimiters">
+                        <div class="icon">
+                            <img src="{% static 'images/invitation_icon.png' %}" />
+                        </div>
+                        <div class="icon2">
+                            <img src="{% static 'images/invitation_icon.png' %}" />
+                        </div>
+
+                        <div class="trip-data">
+                            <div class="right-dash trip-element trip-name-container">
+                                <h3 class="trip-element-title trip-title-name">Viaggio</h3>
+                                <p class="trip-element-value trip-name">Divertimento cribbio!</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-destination-container">
+                                <h3 class="trip-element-title trip-title-destination">Destinazione</h3>
+                                <p class="trip-element-value trip-destination">Arcore, Italia</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-departure-container">
+                                <h3 class="trip-element-title trip-title-departure">Partenza</h3>
+                                <p class="trip-element-value trip-departure">24/04/2024</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-return-container">
+                                <h3 class="trip-element-title trip-title-return">Ritorno</h3>
+                                <p class="trip-element-value trip-return">01/05/2024</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-participants-container">
+                                <h3 class="trip-element-title trip-title-participants">Partecipanti</h3>
+                                <p class="trip-element-value trip-participants">Clicca per vedere!</p>
+                            </div>
+
+                            <div class="trip-element trip-itinerary-container">
+                                <h3 class="trip-element-title trip-title-itinerary">Itinerario</h3>
+                                <p class="trip-element-value trip-itinerary">Clicca per vedere!</p>
+                            </div>
+
+                            <a class="edit-button" aria-hidden="true">
+                                <img src="{% static 'images/edit_icon.png' %}" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="trip-container">
+                <div class="trip trip-info trip-white">
+                    <div class="lateral-delimiters">
+                        <div class="icon">
+                            <img src="{% static 'images/invitation_icon.png' %}" />
+                        </div>
+                        <div class="icon2">
+                            <img src="{% static 'images/invitation_icon.png' %}" />
+                        </div>
+
+                        <div class="trip-data">
+                            <div class="right-dash trip-element trip-name-container">
+                                <h3 class="trip-element-title trip-title-name">Viaggio</h3>
+                                <p class="trip-element-value trip-name">La Grande Mela!</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-destination-container">
+                                <h3 class="trip-element-title trip-title-destination">Destinazione</h3>
+                                <p class="trip-element-value trip-destination">New York, USA</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-departure-container">
+                                <h3 class="trip-element-title trip-title-departure">Partenza</h3>
+                                <p class="trip-element-value trip-departure">10/09/2024</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-return-container">
+                                <h3 class="trip-element-title trip-title-return">Ritorno</h3>
+                                <p class="trip-element-value trip-return">20/09/2024</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-participants-container">
+                                <h3 class="trip-element-title trip-title-participants">Partecipanti</h3>
+                                <p class="trip-element-value trip-participants">Clicca per vedere!</p>
+                            </div>
+
+                            <div class="trip-element trip-itinerary-container">
+                                <h3 class="trip-element-title trip-title-itinerary">Itinerario</h3>
+                                <p class="trip-element-value trip-itinerary">Clicca per vedere!</p>
+                            </div>
+
+                            <a class="edit-button" aria-hidden="true">
+                                <img src="{% static 'images/edit_icon.png' %}" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="trip-container">
+                <div class="trip trip-info trip-white">
+                    <div class="lateral-delimiters">
+                        <div class="icon">
+                            <img src="{% static 'images/invitation_icon.png' %}" />
+                        </div>
+                        <div class="icon2">
+                            <img src="{% static 'images/invitation_icon.png' %}" />
+                        </div>
+
+                        <div class="trip-data">
+                            <div class="right-dash trip-element trip-name-container">
+                                <h3 class="trip-element-title trip-title-name">Viaggio</h3>
+                                <p class="trip-element-value trip-name">La terra dei Samurai!</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-destination-container">
+                                <h3 class="trip-element-title trip-title-destination">Destinazione</h3>
+                                <p class="trip-element-value trip-destination">Tokyo, Giappone</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-departure-container">
+                                <h3 class="trip-element-title trip-title-departure">Partenza</h3>
+                                <p class="trip-element-value trip-departure">12/03/2024</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-return-container">
+                                <h3 class="trip-element-title trip-title-return">Ritorno</h3>
+                                <p class="trip-element-value trip-return">25/03/2024</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-participants-container">
+                                <h3 class="trip-element-title trip-title-participants">Partecipanti</h3>
+                                <p class="trip-element-value trip-participants">Clicca per vedere!</p>
+                            </div>
+
+                            <div class="trip-element trip-itinerary-container">
+                                <h3 class="trip-element-title trip-title-itinerary">Itinerario</h3>
+                                <p class="trip-element-value trip-itinerary">Clicca per vedere!</p>
+                            </div>
+
+                            <a class="edit-button" aria-hidden="true">
+                                <img src="{% static 'images/edit_icon.png' %}" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="trip-container">
+                <div class="trip trip-info trip-white">
+                    <div class="lateral-delimiters">
+                        <div class="icon">
+                            <img src="{% static 'images/invitation_icon.png' %}" />
+                        </div>
+                        <div class="icon2">
+                            <img src="{% static 'images/invitation_icon.png' %}" />
+                        </div>
+
+                        <div class="trip-data">
+                            <div class="right-dash trip-element trip-name-container">
+                                <h3 class="trip-element-title trip-title-name">Viaggio</h3>
+                                <p class="trip-element-value trip-name">Relax completo</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-destination-container">
+                                <h3 class="trip-element-title trip-title-destination">Destinazione</h3>
+                                <p class="trip-element-value trip-destination">Hawaii, USA</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-departure-container">
+                                <h3 class="trip-element-title trip-title-departure">Partenza</h3>
+                                <p class="trip-element-value trip-departure">01/11/2024</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-return-container">
+                                <h3 class="trip-element-title trip-title-return">Ritorno</h3>
+                                <p class="trip-element-value trip-return">10/11/2024</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-participants-container">
+                                <h3 class="trip-element-title trip-title-participants">Partecipanti</h3>
+                                <p class="trip-element-value trip-participants">Clicca per vedere!</p>
+                            </div>
+
+                            <div class="trip-element trip-itinerary-container">
+                                <h3 class="trip-element-title trip-title-itinerary">Itinerario</h3>
+                                <p class="trip-element-value trip-itinerary">Clicca per vedere!</p>
+                            </div>
+
+                            <a class="edit-button" aria-hidden="true">
+                                <img src="{% static 'images/edit_icon.png' %}" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="trip-container">
+                <div class="trip trip-info trip-white">
+                    <div class="lateral-delimiters">
+                        <div class="icon">
+                            <img src="{% static 'images/invitation_icon.png' %}" />
+                        </div>
+                        <div class="icon2">
+                            <img src="{% static 'images/invitation_icon.png' %}" />
+                        </div>
+
+                        <div class="trip-data">
+                            <div class="right-dash trip-element trip-name-container">
+                                <h3 class="trip-element-title trip-title-name">Viaggio</h3>
+                                <p class="trip-element-value trip-name">La rosa del Sahara</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-destination-container">
+                                <h3 class="trip-element-title trip-title-destination">Destinazione</h3>
+                                <p class="trip-element-value trip-destination">Marrakech, Marocco</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-departure-container">
+                                <h3 class="trip-element-title trip-title-departure">Partenza</h3>
+                                <p class="trip-element-value trip-departure">20/02/2024</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-return-container">
+                                <h3 class="trip-element-title trip-title-return">Ritorno</h3>
+                                <p class="trip-element-value trip-return">02/03/2024</p>
+                            </div>
+
+                            <div class="right-dash trip-element trip-participants-container">
+                                <h3 class="trip-element-title trip-title-participants">Partecipanti</h3>
+                                <p class="trip-element-value trip-participants">Clicca per vedere!</p>
+                            </div>
+
+                            <div class="trip-element trip-itinerary-container">
+                                <h3 class="trip-element-title trip-title-itinerary">Itinerario</h3>
+                                <p class="trip-element-value trip-itinerary">Clicca per vedere!</p>
+                            </div>
+
+                            <a class="edit-button" aria-hidden="true">
+                                <img src="{% static 'images/edit_icon.png' %}" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -57,3 +57,7 @@ def userHomePage_view(request):
 @login_required(login_url = 'login')
 def detailsTravel_view(request):
     return render(request, 'organizzatoreViaggi/detailsTravel.html')
+
+@login_required(login_url = 'login')
+def myTravels_view(request):
+    return render(request, 'organizzatoreViaggi/myTravels.html')
