@@ -1,0 +1,293 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #2980b9, #8e44ad);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.page-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 600px;
+    width: 1000px;
+    background: white;
+    border-radius: 10px;
+    border-image: linear-gradient(120deg, #5b117a, #5cb3ec) 30;
+    border-width: 10px;
+    border-style: solid;
+    overflow: hidden;
+}
+
+nav {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: dashed 1.5px;
+}
+
+nav h1 {
+    height: 30px;
+    width: 40%;
+    font-size: 26px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid silver;
+}
+
+nav a {
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: .4s;
+}
+
+nav a img {
+    height: 36px;
+    width: 36px;
+    margin-bottom: -22px;
+
+    --color: #2980B9;   /* the color of the border */
+    --border: 3px;      /* the thickness of the border */
+    --offset: 10px;     /* control the movement of the border */
+    --gap: 2px;         /* the gap on hover */
+
+    border-radius: 50%;
+    cursor: pointer;
+    padding: calc(var(--border) + var(--gap));
+    border: var(--offset) solid #0000;
+    --_m: radial-gradient(50% 50%, #000 calc(100% - var(--offset)),#0000 calc(100% - var(--border)));
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    --_g: #0000 calc(99% - var(--border)), var(--color) calc(100% - var(--border)) 99%,#0000;
+    --_s: var(--offset);
+    --_r: 100% 100% at;
+
+    background:
+        radial-gradient(var(--_r) 0    0   ,var(--_g)) calc(100% + var(--_s)) calc(100% + var(--_s)),
+        radial-gradient(var(--_r) 100% 0   ,var(--_g)) calc(0%   - var(--_s)) calc(100% + var(--_s)),
+        radial-gradient(var(--_r) 0    100%,var(--_g)) calc(100% + var(--_s)) calc(0%   - var(--_s)),
+        radial-gradient(var(--_r) 100% 100%,var(--_g)) calc(0%   - var(--_s)) calc(0%   - var(--_s));
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    transition: .4s;
+}
+
+nav a:hover img {
+    --_s: 0px
+}
+
+nav a p {
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    position: absolute;
+    left: 0;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #5cb3ec;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8e44ad;
+}
+
+.main {
+    height: 80%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    overflow-Y: auto;
+}
+
+.main .trip-container {
+    height: 100px;
+    width: 100%;
+    position: relative;
+    margin-top: 15px;
+}
+
+.lateral-delimiters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -10px;
+}
+
+/* CONTENITORE PRINCIPALE */
+.trip {
+    height: 70px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1.2px solid transparent;
+    border-radius: 4px;
+}
+
+/* SFONDO CONTENITORE PRINCIPALE */
+.trip-white {
+    background-image: linear-gradient(to bottom,#FFFFFF,#F9F9F9);
+    border-top-color: #d8d8d8;
+    border-bottom-color: #bdbdbd;
+    border-left-color: #cacaca;
+    border-right-color: #cacaca;
+    color: black;
+    padding-left: 61px;
+    position: relative;
+}
+
+.trip-white .icon {
+    text-align: center;
+    width: 30px;
+    height: 100%;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    border: 1px solid #bdbdbd;
+}
+
+.trip-white .icon2 {
+    text-align: center;
+    width: 30px;
+    height: 100%;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    border: 1px solid #bdbdbd;
+}
+
+.trip-white .icon:after {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    display: block;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border: 1px solid #bdbdbd;
+    position: absolute;
+    border-left: 0;
+    border-bottom: 0;
+    top: 50%;
+    right: -6px;
+    margin-top: -5px;
+    background: #fff;
+}
+
+.trip-white .icon2:after {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    display: block;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border: 1px solid #bdbdbd;
+    position: absolute;
+    border-right: 0;
+    border-top: 0;
+    top: 50%;
+    left: -6px;
+    margin-top: -5px;
+    background: #fff;
+}
+
+.trip-white .icon img {
+    height: 30px;
+    width: 30px;
+    color: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.trip-white .icon2 img {
+    height: 30px;
+    width: 30px;
+    color: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+.trip-white.trip-info .icon, .trip-white.trip-info .icon:after {
+    border-color: black;
+    background: #5cb3ec;
+}
+
+.trip-white.trip-info .icon2, .trip-white.trip-info .icon2:after {
+    border-color: black;
+    background: #5b117a;
+}
+
+.trip-data {
+    height: 100%;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.trip-element {
+    height: 100%;
+    width: 14%;
+}
+
+.right-dash {
+    border-right: dashed 1.5px;
+    padding-right: 1%;
+}
+
+.trip-element-title, .trip-element-value  {
+    margin-left: 10px;
+}
+
+.trip-element-title {
+    margin-top: 10px;
+}
+
+.trip-element-value {
+    margin-top: -15px;
+}
+
+.edit-button img {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+}
