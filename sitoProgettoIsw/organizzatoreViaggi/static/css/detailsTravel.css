@@ -135,10 +135,16 @@ nav a p {
 }
 
 .main-c {
-    height: 100%;
-    width: 100%;
-    padding-right: 5%;
-    border-right: dashed 1.5px;
+    top: 500%;
+    height: 40%;
+    width: 80%;
+    transform: translate(10%, 64%);
+    background: white;
+    border-radius: 10px;
+    border-image: linear-gradient(120deg, #5b117a, #5cb3ec) 30;
+    border-width: 10px;
+    border-style: solid;
+    overflow: hidden;
 }
 
 .main-c form {
@@ -165,7 +171,7 @@ nav a p {
 
 table{
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
@@ -180,4 +186,20 @@ table{
 th, td{
     width:100px;
     overflow: hidden;
+}
+
+.button-modify {
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    display: flex;
+    flex-direction: row;
+}
+
+.button-invite {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    display: flex;
+    flex-direction: row;
 }
