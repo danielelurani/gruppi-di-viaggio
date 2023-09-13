@@ -146,48 +146,25 @@ form .textField{
 
 
 .main {
-    height: 80%;
+    height: 70%;
     width: 90%;
     display: flex;
     position: relative;
     flex-direction: row;
     align-items: center;
+    text-align: center;
     justify-content: center;
     margin: auto;
 }
 
 
 .main-sx {
-    height: 100%;
+    height: 80%;
     width: 50%;
     position: relative;
     border-right: dashed 1.5px;
     text-align: center;
 }
-
-
-.main-dx {
-    height: 100%;
-    width: 50%;
-    text-align: center;
-}
-
-
-
-.main-dx form {
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 102%;
-    margin-top: 5%;
-    margin-left: 10px;
-}
-
-.input_itinerary{
-    display: inline-block;
-}
-
 
 .main-sx form {
     display: flex;
@@ -199,3 +176,66 @@ form .textField{
     margin-left: 10px;
 }
 
+
+.main-dx {
+    height: 80%;
+    width: 50%;
+    position: relative;
+    text-align: center;
+}
+
+.input_itinerary {
+    display: flex;
+    text-align: center;
+}
+
+.itinerary_field input{
+    width:80%;
+    padding: 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+    border-bottom: 2px solid #ADADAD;
+}
+
+.itinerary_field label {
+    position: relative;
+    top: 60%;
+    left: -72px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.button-container {
+    width: 100%;
+    display: flex ;
+    justify-content: center;
+}
+
+.button-container apply_button {
+    width: 30%;
+}
+
+
+.apply_button{
+   width: 30%;
+    height: 50px;
+    border: 4px solid;
+    background: black;
+    border-radius: 20px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+
+
+.apply_button:hover {
+    border-color: #8e44ad;
+    transition: .5s;
+}
