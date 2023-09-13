@@ -74,3 +74,8 @@ def detailsTravel_view(request):
 @login_required(login_url = 'login')
 def myTravels_view(request):
     return render(request, 'organizzatoreViaggi/myTravels.html')
+
+
+@login_required(login_url= 'login')
+def changeItinerary_view(request):
+    return render(request, 'organizzatoreViaggi/changeItinerary.html')

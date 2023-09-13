@@ -1,0 +1,84 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifica Itinerario</title>
+    <link rel="stylesheet" href="{% static 'css/changeItinerary.css'%}">
+</head>
+<body>
+   <div class="page-container">
+       <nav>
+           <a href="">
+               <img src="{% static 'images/plane_icon.png' %}" />
+               <p>I miei viaggi</p>
+           </a>
+           <h1>MODIFICA VIAGGIO</h1>
+           <a href="{% url 'logout' %}">
+               <img src="{% static 'images/logout_icon.png' %}" />
+               <p>Log-out</p>
+           </a>
+       </nav>
+
+       <div class="main">
+
+            <div class="main-sx">
+
+                <h2>MODIFICA DATI VIAGGIO</h2>
+                    <form method="post">
+
+                        <div class="textField">
+                            <input type="text" required>
+                            <label>Nome viaggio:</label>
+                        </div>
+
+                        <div class="textField">
+                            <input type="text" required>
+                            <label>Destinazione:</label>
+                        </div>
+
+                        <div class="textField">
+                            <input type="text" required>
+                            <label>Data partenza:</label>
+                        </div>
+
+                        <div class="textField">
+                            <input type="text" required>
+                            <label>Data ritorno:</label>
+                        </div>
+
+                        <!--
+                        {% csrf_token %}
+                        {{ form.newTripForm }}
+                        -->
+                    </form>
+            </div>
+
+           <div class = "main-dx">
+
+               <h2>MODIFICA ITINERARIO</h2>
+
+
+               <form method="post">
+                   <div class="textField">
+                       <input type="text" required>
+                       <label>Luogo:</label>
+                   </div>
+                   <div class="textField">
+                       <input type="text" required>
+                       <label>Data:</label>
+                   </div>
+               </form>
+           </div>
+
+           <input type="submit" value="APPLICA MODIFICHE">
+
+       </div>
+
+
+   </div>
+
+</body>
+</html>
