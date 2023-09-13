@@ -11,7 +11,7 @@
 <body>
    <div class="page-container">
        <nav>
-           <a href="">
+           <a href="{% url 'myTravels' %}">
                <img src="{% static 'images/plane_icon.png' %}" />
                <p>I miei viaggi</p>
            </a>
@@ -62,18 +62,19 @@
 
 
                <form method="post">
-                   <div class="textField">
-                       <input type="text" required>
-                       <label>Luogo:</label>
-                   </div>
-                   <div class="textField">
-                       <input type="text" required>
-                       <label>Data:</label>
+                   <div class="input_itinerary">
+
+                       <div class="textField">
+                           <input type="text" required>
+                           <label>Luogo:</label>
+                       </div>
+                       <div class="textField">
+                           <input type="text" required>
+                           <label>Data:</label>
+                       </div>
                    </div>
                </form>
            </div>
-
-           <input type="submit" value="APPLICA MODIFICHE">
 
        </div>
 

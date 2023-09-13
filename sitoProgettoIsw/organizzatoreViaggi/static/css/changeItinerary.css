@@ -149,6 +149,7 @@ form .textField{
     height: 80%;
     width: 90%;
     display: flex;
+    position: relative;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -159,24 +160,22 @@ form .textField{
 .main-sx {
     height: 100%;
     width: 50%;
+    position: relative;
     border-right: dashed 1.5px;
+    text-align: center;
 }
 
-.main-sx {
-    height: 100%;
-    width: 50%;
-    border-right: dashed 1.5px;
-}
 
 .main-dx {
     height: 100%;
     width: 50%;
+    text-align: center;
 }
 
 
 
 .main-dx form {
-    display: flex;
+    display: inline-block;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -185,6 +184,9 @@ form .textField{
     margin-left: 10px;
 }
 
+.input_itinerary{
+    display: inline-block;
+}
 
 
 .main-sx form {
@@ -196,6 +198,4 @@ form .textField{
     margin-top: 5%;
     margin-left: 10px;
 }
-
-
 
