@@ -283,6 +283,25 @@ nav a p {
     margin-top: -15px;
 }
 
+.trip-participants-container {
+}
+
+.trip-participant-items {
+    height: 55px;
+    width: 90%;
+    margin-left: 10px;
+    margin-top: -15px;
+    display: flex;
+    flex-direction: column;
+    overflow-Y: auto;
+}
+
+.trip-participant-items .participant-name {
+    height: 10px;
+    margin-top: 0;
+    margin-bottom: 7px;
+}
+
 .edit-button img {
     height: 20px;
     width: 20px;
