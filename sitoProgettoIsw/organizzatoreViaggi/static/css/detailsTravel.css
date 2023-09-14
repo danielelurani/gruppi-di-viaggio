@@ -3,7 +3,7 @@ body {
     padding: 0;
     background: linear-gradient(120deg, #2980b9, #8e44ad);
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .page-container {
@@ -18,7 +18,7 @@ body {
     border-image: linear-gradient(120deg, #5b117a, #5cb3ec) 30;
     border-width: 10px;
     border-style: solid;
-    overflow: hidden;
+    overflow: auto;
 }
 
 nav {
@@ -112,7 +112,6 @@ nav a p {
     top: 10%;
     display: flex;
     flex-direction: column;
-    overflow-X: auto;
 }
 
 .travel-title {
@@ -167,6 +166,7 @@ nav a p {
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 100%;
+    overflow-X: auto;
 }
 
 .travel-table tr {
@@ -185,7 +185,7 @@ nav a p {
 }
 
 .travel-table td {
-    width: 150px;
+    width: 80px;
     min-width: 50px;
     text-align: center;
 }
@@ -202,11 +202,31 @@ nav a p {
     border-bottom: 2px solid #5b117a;
 }
 
+.travel-table tr th {
+    width: 150px;
+    min-width: 50px;
+    text-align: left;
+}
+
+.itinerary-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.travel-table tr .itinerary-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.travel-table tr .itinerary-item p {
+    height: 5px;
+}
+
 .line1 {
     height: 5px;
     width: 100%;
     position: absolute;
-    top: 15%;
+    top: 10%;
     background: linear-gradient(#2980b9, #8e44ad);
 }
 
@@ -214,14 +234,14 @@ nav a p {
     height: 5px;
     width: 95%;
     position: absolute;
-    top: 36%;
+    top: 45%;
     background: linear-gradient(#2980b9, #8e44ad);
 }
 
 .table-buttons {
     width: 100%;
     position: absolute;
-    top: 34%;
+    top: 43%;
     display: flex;
     justify-content: center;
 }
@@ -249,9 +269,9 @@ nav a p {
 /* ----------------------------------------------------------------------- */
 
 .chat-container {
-    height: 65%;
+    height: 45%;
     width: 90%;
-    margin-top: 250px;
+    margin-top: 370px;
     background: #dddddd;
     font-family: 'Lato', sans-serif;
     overflow-Y: auto;
@@ -259,11 +279,12 @@ nav a p {
 }
 
 .menu {
-    width: 85.5%;
+    width: 88%;
     height: 50px;
+    margin-left: -10px;
 
     position: fixed;
-    top: 415px;
+    top: 510px;
     background: #5b117a;
 
     z-index: 100;
@@ -307,7 +328,6 @@ nav a p {
     background: url("/static/images/planes_background.bmp") 20% 0 fixed;
     margin: 0;
     padding: 0 0 50px 0;
-    margin-top: 50px;
     margin-bottom: 15px;
 }
 
@@ -512,7 +532,7 @@ nav a p {
 /* T Y P E */
 .typezone {
     position: fixed;
-    bottom: 60px;
+    bottom: 20px;
     left: -3px;
     width: 95%;
     height: 50px;
@@ -530,7 +550,7 @@ textarea, textarea:hover {
     height: 30px;
     z-index: 100;
     background: #fafafa;
-    border: none;
+    border: solid 2px black;
     outline: none;
     padding-left: 2%;
     padding-right: 2%;
@@ -556,10 +576,11 @@ textarea:focus {
     bottom: 1px;
     right: 20px;
     width: 50px;
-    height: 52px;
+    height: 51px;
     background: #fafafa;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    border: solid 2px black;
     z-index: 999;
     cursor: pointer;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
