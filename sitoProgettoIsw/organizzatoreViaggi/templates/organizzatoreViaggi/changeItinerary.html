@@ -24,44 +24,53 @@
 
        <div class="main">
 
-            <div class="main-sx">
+           <div class="main-sx">
 
-                <h2>MODIFICA DATI VIAGGIO</h2>
-                    <form method="post">
+               <h2 style="text-align: center;">MODIFICA DATI VIAGGIO</h2>
+
+                <form class="form_travel" method="post">
 
                         <div class="textField">
-                            <input type="text" required>
                             <label>Nome viaggio:</label>
+                            <input type="text" required>
+
                         </div>
 
                         <div class="textField">
-                            <input type="text" required>
                             <label>Destinazione:</label>
+                            <input type="text" required>
+
                         </div>
 
                         <div class="textField">
+                             <label>Data partenza:</label>
                             <input type="text" required>
-                            <label>Data partenza:</label>
+
                         </div>
 
                         <div class="textField">
-                            <input type="text" required>
                             <label>Data ritorno:</label>
+                            <input type="text" required>
+
                         </div>
 
-                        <!--
-                        {% csrf_token %}
-                        {{ form.newTripForm }}
-                        -->
-                    </form>
-            </div>
+                            <!--
+                           {% csrf_token %}
+                           {{ form.newTripForm }}
+                            -->
+
+                </form>
+
+           </div>
+
 
            <div class = "main-dx">
 
                <h2>MODIFICA ITINERARIO</h2>
 
 
-               <form method="post">
+               <form class="form_itinerary" method="post">
+
                    <div class="input_itinerary">
 
                        <div class="itinerary_field">
@@ -70,7 +79,17 @@
 
                        </div>
                        <div class="itinerary_field">
-                           <label>Data:</label>
+                           <label>Descrizione:</label>
+                           <input type="text" required>
+                       </div>
+
+                       <div class="itinerary_field">
+                           <label>Data inizio:</label>
+                           <input type="text" required>
+                       </div>
+
+                       <div class="itinerary_field">
+                           <label>Data fine:</label>
                            <input type="text" required>
                        </div>
                    </div>
@@ -83,7 +102,17 @@
 
                        </div>
                        <div class="itinerary_field">
-                           <label>Data:</label>
+                           <label>Descrizione:</label>
+                           <input type="text" required>
+                       </div>
+
+                       <div class="itinerary_field">
+                           <label>Data inizio:</label>
+                           <input type="text" required>
+                       </div>
+
+                       <div class="itinerary_field">
+                           <label>Data fine:</label>
                            <input type="text" required>
                        </div>
                    </div>
@@ -96,20 +125,108 @@
 
                        </div>
                        <div class="itinerary_field">
-                           <label>Data:</label>
+                           <label>Descrizione:</label>
+                           <input type="text" required>
+                       </div>
+
+                       <div class="itinerary_field">
+                           <label>Data inizio:</label>
+                           <input type="text" required>
+                       </div>
+
+                       <div class="itinerary_field">
+                           <label>Data fine:</label>
                            <input type="text" required>
                        </div>
                    </div>
 
+                   <div class="input_itinerary">
+
+                       <div class="itinerary_field">
+                           <label>Luogo:</label>
+                           <input type="text" required>
+
+                       </div>
+                       <div class="itinerary_field">
+                           <label>Descrizione:</label>
+                           <input type="text" required>
+                       </div>
+
+                       <div class="itinerary_field">
+                           <label>Data inizio:</label>
+                           <input type="text" required>
+                       </div>
+
+                       <div class="itinerary_field">
+                           <label>Data fine:</label>
+                           <input type="text" required>
+                       </div>
+                   </div>
+
+                    <div class="input_itinerary">
+
+                       <div class="itinerary_field">
+                           <label>Luogo:</label>
+                           <input type="text" required>
+
+                       </div>
+                       <div class="itinerary_field">
+                           <label>Descrizione:</label>
+                           <input type="text" required>
+                       </div>
+
+                       <div class="itinerary_field">
+                           <label>Data inizio:</label>
+                           <input type="text" required>
+                       </div>
+
+                       <div class="itinerary_field">
+                           <label>Data fine:</label>
+                           <input type="text" required>
+                       </div>
+                   </div>
+
+                    <div class="input_itinerary">
+
+                       <div class="itinerary_field">
+                           <label>Luogo:</label>
+                           <input type="text" required>
+
+                       </div>
+                       <div class="itinerary_field">
+                           <label>Descrizione:</label>
+                           <input type="text" required>
+                       </div>
+
+                       <div class="itinerary_field">
+                           <label>Data inizio:</label>
+                           <input type="text" required>
+                       </div>
+
+                       <div class="itinerary_field">
+                           <label>Data fine:</label>
+                           <input type="text" required>
+                       </div>
+                   </div>
 
                </form>
-           </div>
 
-       </div>
 
-       <div class="button-container" >
+       <div class="button_container">
            <input class="apply_button" type="submit" value="APPLICA MODIFICHE">
        </div>
+
+
+
+           </div>
+
+
+
+
+       </div>
+
+
+
 
 
    </div>
