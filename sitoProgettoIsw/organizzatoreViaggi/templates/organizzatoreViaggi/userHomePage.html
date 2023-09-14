@@ -36,13 +36,13 @@
                         <p>{{ request.user }}</p>
 
                         <h3>Nome:</h3>
-                        <p>Admin</p>
+                        <p>{{ request.user.first_name}}</p>
 
                         <h3>Cognome:</h3>
-                        <p>Admin</p>
+                        <p>{{ request.user.last_name}}</p>
 
                         <h3>Email:</h3>
-                        <p>admin@viaggi.com</p>
+                        <p>{{ request.user.email}}</p>
 
                         <h3>Password:</h3>
                         <p>************</p>
@@ -58,9 +58,6 @@
                         <h2>CREA UN NUOVO VIAGGIO</h2>
                          
                         {{form.as_p}}
-                        
-                
-
                         
                         <input type="submit" value="AGGIUNGI VIAGGIO">
                     </form>
