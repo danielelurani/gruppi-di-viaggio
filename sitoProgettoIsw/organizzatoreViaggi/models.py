@@ -17,7 +17,3 @@ class Travel(models.Model):
 
     def __str__ (self):
         return self.name
-    
-    def check_dates(self):
-        return self.end_date >= self.start_date
-

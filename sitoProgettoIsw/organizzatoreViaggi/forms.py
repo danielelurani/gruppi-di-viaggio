@@ -25,6 +25,18 @@ class TravelForm(ModelForm):
                 'name': forms.DateInput(attrs={'class': 'textField'}),
                 'destination': forms.DateInput(attrs={'class': 'textField'})
             }
+    
+    def clean(self):
+        cleaned_data = super().clean()
+
+        start_date = cleaned_data.get('start_date')
+        end_date = cleaned_data.get('end_date')
+
+        # Controllo che la data di fine viaggio sia più avanti di quella di inizio viaggio
+        if start_date > end_date:
+            raise forms.ValidationError("La data di fine viaggio non può essere antecedente alla partenza!")
+
+        return cleaned_data
 
 class CreateUserForm(UserCreationForm):
 
