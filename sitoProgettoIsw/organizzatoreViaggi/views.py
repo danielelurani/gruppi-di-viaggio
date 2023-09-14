@@ -4,6 +4,7 @@ from .forms import CreateUserForm, TravelForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from .models import Travel
 
 # Create your views here.
 
@@ -73,7 +74,10 @@ def detailsTravel_view(request):
 
 @login_required(login_url = 'login')
 def myTravels_view(request):
-    return render(request, 'organizzatoreViaggi/myTravels.html')
+
+    travels = Travel.objects.filter(participants = request.user)
+    context = { 'travelsList': travels }
+    return render(request, 'organizzatoreViaggi/myTravels.html',context)
 
 
 @login_required(login_url= 'login')
