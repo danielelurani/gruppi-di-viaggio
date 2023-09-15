@@ -137,9 +137,26 @@ nav a p {
 
 
 .button_container2 {
-    margin-top: 15%;
+    margin-top: 5%;
+}
+.apply_button {
+    margin-top: 20%;
+     width: 100%;
+    height: 50px;
+    border: 4px solid;
+    background: black;
+    border-radius: 20px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
 }
 
+.apply_button:hover {
+    border-color: #8e44ad;
+    transition: .5s;
+}
 
 /* parte destra */
 
@@ -187,11 +204,9 @@ nav a p {
     width: 90%;
     height: 100%;
     margin-left: 8%;
-
 }
 
 .empty_form_itinerary {
-    margin-top: 5%;
     width: 90%;
     height: 100%;
     margin-left: 8%;
@@ -201,20 +216,19 @@ nav a p {
 .form_container{
     width: 100%;
     overflow-y: scroll;
-
 }
 
 .form_field {
     display: flex;
     flex-direction: row;
-
+    padding-bottom: 10px;
+    border-bottom: dashed 1.5px;;
 }
 
 .input_itinerary{
     height:20%;
     width: 95%;
     display: flex;
-    border-bottom: dashed 1.5px;;
     flex-direction: column;
     justify-content: center;
 }
@@ -257,7 +271,7 @@ nav a p {
     border-color: #8e44ad;
     transition: .5s;
 }
-
+/*
 .button_container apply_button {
     width: 60%;
 }
@@ -280,6 +294,8 @@ nav a p {
     border-color: #8e44ad;
     transition: .5s;
 }
+
+*/
 
 ::-webkit-scrollbar {
     width: 5px;
