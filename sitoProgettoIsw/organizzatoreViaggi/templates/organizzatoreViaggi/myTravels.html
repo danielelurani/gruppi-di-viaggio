@@ -61,12 +61,11 @@
                                 <h3 class="trip-element-title trip-title-participants">Partecipanti</h3>
 
                                 <div class="trip-participant-items">
-                                    <p class="participant-name">Tu</p>
-                                    <p class="participant-name">Renato</p>
-                                    <p class="participant-name">Silvio</p>
-                                    <p class="participant-name">Bruno</p>
-                                    <p class="participant-name">Gianni</p>
-                                    <p class="participant-name">Mario</p>
+                                    {% for participant in travel.participants.all %}
+                                        <p class="participant-name">{{ participant.first_name }}</p>
+                                        <p class="participant-name">{{ participant.last_name }}</p>
+                                        <p class="participant-name"> </p>
+                                    {% endfor %}
                                 </div>
                             </div>
 
