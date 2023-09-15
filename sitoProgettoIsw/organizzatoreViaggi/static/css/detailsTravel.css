@@ -8,7 +8,7 @@ body {
 
 .page-container {
     position: absolute;
-    top: 75%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     height: 1000px;
@@ -19,6 +19,23 @@ body {
     border-width: 10px;
     border-style: solid;
     overflow: auto;
+}
+
+@media screen and (max-height: 1000px) {
+    .page-container {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 1000px;
+        width: 1000px;
+        background: white;
+        border-radius: 10px;
+        border-image: linear-gradient(120deg, #5b117a, #5cb3ec) 30;
+        border-width: 10px;
+        border-style: solid;
+        overflow: auto;
+    }
 }
 
 nav {
