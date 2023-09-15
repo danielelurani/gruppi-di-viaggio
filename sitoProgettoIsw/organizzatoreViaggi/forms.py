@@ -2,7 +2,45 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 from django.forms import ModelForm, TextInput, PasswordInput, EmailInput
-from .models import CustomUser, Travel
+from .models import CustomUser, Travel, Invitation
+from django.core.exceptions import ObjectDoesNotExist
+
+class InvitationForm(forms.Form):
+    
+    receiver = forms.EmailField(label='Email destinatario', required=True)
+    travel = forms.ModelChoiceField(queryset=None, label='Viaggio')
+
+    def __init__(self, sender, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.user = sender
+
+        self.fields['travel'].queryset = Travel.objects.filter(participants=self.user)
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        this_receiver = cleaned_data.get('receiver')
+        this_travel = cleaned_data.get('travel')
+
+        # Controllo se esiste un utente con la mail inserita
+        try:
+            receiver_user = CustomUser.objects.get(email=this_receiver)
+        except ObjectDoesNotExist:
+            raise forms.ValidationError("Non esiste nessun utente con questa mail!")
+        
+        # Controllo se l'utente non faccia già parte del viaggio
+        travel_obj = Travel.objects.get(name = this_travel)
+        participants = travel_obj.participants.values_list('email', flat=True)
+
+        if this_receiver in participants:
+            raise forms.ValidationError("L'utente selezionato fa già parte del viaggio!")
+        
+        # Controllo se l'utente non sia già stato invitato per lo stesso viaggio
+        if Invitation.objects.filter(receiver = this_receiver, travel = this_travel).exists():
+            raise forms.ValidationError("L'utente selezionato è già stato invitato al viaggio!")
+            
+        return cleaned_data
 
 class TravelForm(ModelForm):
     class Meta:

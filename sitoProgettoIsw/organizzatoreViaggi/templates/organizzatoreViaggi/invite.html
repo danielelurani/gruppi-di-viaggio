@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="it">
+
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Pagina inviti</title>
+        <link rel="stylesheet" href="{% static 'css/invite.css'%}">
+
+    </head>
+    
+    <body>
+
+        <div class="loginFormContainer">
+            <div class="my-travels-container">
+                <a href="{% url 'myTravels' %}">
+                    <img src="{% static 'images/plane_icon.png' %}" />
+                    <p>I miei viaggi</p>
+                </a>
+            </div>
+
+            <h1>Invita ad un viaggio!</h1>
+
+            <form method="post" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+                
+
+                <input type="submit" value="Manda invito">
+
+            </form>
+
+        </div>
+
+    </body>
+
+</html>

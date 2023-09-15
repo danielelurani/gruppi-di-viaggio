@@ -257,12 +257,32 @@ nav a p {
     background: linear-gradient(#2980b9, #8e44ad);
 }
 
+@media screen and (max-height: 1000px) {
+    .line2{
+        height: 5px;
+        width: 95%;
+        position: absolute;
+        top: 51.5%;
+        background: linear-gradient(#2980b9, #8e44ad);
+    }
+}
+
 .table-buttons {
     width: 100%;
     position: absolute;
     top: 47%;
     display: flex;
     justify-content: center;
+}
+
+@media screen and (max-height: 1000px) {
+    .table-buttons{
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .button-modify {
@@ -312,6 +332,24 @@ nav a p {
     -moz-user-select: none;
     -ms-user-select: none;
 }
+
+@media screen and (max-height: 1000px) {
+    .menu {
+        width: 88%;
+        height: 50px;
+        margin-left: -10px;
+    
+        position: fixed;
+        top: 660px;
+        background: #5b117a;
+    
+        z-index: 100;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+}
+
 
 .name {
     position: absolute;

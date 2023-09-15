@@ -8,6 +8,6 @@ urlpatterns = [
     path('organizzatoreViaggi/detailsTravel', views.detailsTravel_view, name='detailsTravel'),
     path('organizzatoreViaggi/myTravels', views.myTravels_view, name='myTravels'),
     path('organizzatoreViaggi/changeItinerary', views.changeItinerary_view, name='changeItinerary'),
-    path('organizzatoreViaggi/userHomePage', views.userHomePage_view, name='userHomePage')
-
+    path('organizzatoreViaggi/userHomePage', views.userHomePage_view, name='userHomePage'),
+    path('organizzatoreViaggi/invite', views.invite_view, name='invite')
 ]

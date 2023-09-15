@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateUserForm, TravelForm
+from .forms import CreateUserForm, TravelForm, InvitationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import Travel
+from .models import Travel, Invitation
 
 # Create your views here.
 
@@ -65,8 +65,32 @@ def userHomePage_view(request):
     else:
         form = TravelForm()
 
-    context = {'form': form}
+    invites = Invitation.objects.filter(receiver = request.user.email)
+
+    context = {'form': form, 'invites': invites}
     return render(request, 'organizzatoreViaggi/userHomePage.html', context)
+
+"""def processInvitation_view(request, inv_id):
+
+    invitation = Invitation.objects.get(id=inv_id)
+
+    if "accept" in request.POST:
+
+        travel = invitation.travel
+        user = request.user
+
+        travel.participants.add(user)
+
+        invitation.state = True
+        invitation.save()
+
+        return redirect('myTravels')
+
+    if "decline" in request.POST:
+        invitation.delete()
+        return redirect('userHomePage')"""
+
+    
 
 @login_required(login_url = 'login')
 def detailsTravel_view(request):
@@ -83,3 +107,24 @@ def myTravels_view(request):
 @login_required(login_url= 'login')
 def changeItinerary_view(request):
     return render(request, 'organizzatoreViaggi/changeItinerary.html')
+
+@login_required(login_url= 'login')
+def invite_view(request):
+
+    current_user = request.user
+
+    if request.method == 'POST':
+        form = InvitationForm(current_user, request.POST)
+
+        if form.is_valid():
+            receiver_email = form.cleaned_data['receiver']
+            this_travel = form.cleaned_data['travel']
+
+            invitation = Invitation.objects.create(sender=current_user, receiver=receiver_email, travel=this_travel)
+            invitation.save()
+            return redirect('invite')
+    else:
+        form = InvitationForm(current_user)
+
+    context = { 'form': form }
+    return render(request, 'organizzatoreViaggi/invite.html', context)

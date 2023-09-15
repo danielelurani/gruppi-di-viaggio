@@ -72,66 +72,31 @@
 
                         <div class="invitations-list">
                             <!-- INVITO -->
+                            {% if invites %}
+                            {% for invite in invites %}
                             <div class="alert alert-info alert-white rounded">
                                 <div class="buttons-and-title">
-                                    <p class="invitation-sender">RichSenes</p>
+                                    <p class="invitation-sender">{{ invite.sender }}</p>
                                     <div class="button-messages-container">
-                                        <button type="button" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <!--<form action=" url 'process_invitation' invite.id " method="post">-->
+                                        <form action="" method="post">
+                                            <button type="button" name="accept" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
+                                            <button type="button" name="reject" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        </form>
                                     </div>
                                     <div class="icon">
                                         <img src="{% static 'images/invitation_icon.png' %}" />
                                     </div>
                                 </div>
-                                <p class="invitation-message">Invito per un viaggio presso <b>Roma</b>!</p>
+                                <p class="invitation-message">Invito per un viaggio presso <b>{{ invite.travel }}</b>!</p>
                             </div>
-
-                            <!-- INVITO -->
-                            <div class="alert alert-info alert-white rounded">
-                                <div class="buttons-and-title">
-                                    <p class="invitation-sender">Berlusconi</p>
-                                    <div class="button-messages-container">
-                                        <button type="button" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    </div>
-                                    <div class="icon">
-                                        <img src="{% static 'images/invitation_icon.png' %}" />
-                                    </div>
-                                </div>
-                                <p class="invitation-message">Invito per un viaggio presso <b>Arcore</b>!</p>
+                            {% endfor %}
+                            {% else %}
+                            <div >
+                                <h3>Nessun invito da mostrare!</h3>
                             </div>
-
-                            <!-- INVITO -->
-                            <div class="alert alert-info alert-white rounded">
-                                <div class="buttons-and-title">
-                                    <p class="invitation-sender">GiampyTek</p>
-                                    <div class="button-messages-container">
-                                        <button type="button" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    </div>
-                                    <div class="icon">
-                                        <img src="{% static 'images/invitation_icon.png' %}" />
-                                    </div>
-                                </div>
-                                <p class="invitation-message">Invito per un viaggio presso <b>i limiti dell'evoluto</b>!</p>
-                            </div>
-
-                            <!-- INVITO -->
-                            <div class="alert alert-info alert-white rounded">
-                                <div class="buttons-and-title">
-                                    <p class="invitation-sender">Paolo</p>
-                                    <div class="button-messages-container">
-                                        <button type="button" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    </div>
-                                    <div class="icon">
-                                        <img src="{% static 'images/invitation_icon.png' %}" />
-                                    </div>
-                                </div>
-                                <p class="invitation-message">Invito per un viaggio presso <b>Palermo</b>!</p>
-                            </div>
+                            {% endif %}
                         </div>
-
                     </div>
                 </div>
             </div>

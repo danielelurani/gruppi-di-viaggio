@@ -40,7 +40,7 @@ class Invitation(models.Model):
     id = models.AutoField(primary_key=True)
     sender = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     receiver = models.EmailField(max_length=64)
-    Travel = models.ForeignKey(Travel, on_delete=models.CASCADE)
+    travel = models.ForeignKey(Travel, on_delete=models.CASCADE)
     state = models.BooleanField(default=False)
 
     def __str__(self):
