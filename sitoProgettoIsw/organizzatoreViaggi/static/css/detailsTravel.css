@@ -11,7 +11,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 1000px;
+    height: 1200px;
     width: 1000px;
     background: white;
     border-radius: 10px;
@@ -27,7 +27,7 @@ body {
         top: 20px;
         left: 50%;
         transform: translateX(-50%);
-        height: 1000px;
+        height: 1200px;
         width: 1000px;
         background: white;
         border-radius: 10px;
@@ -202,7 +202,7 @@ nav a p {
 }
 
 .travel-table td {
-    width: 80px;
+    width: 200px;
     min-width: 50px;
     text-align: center;
 }
@@ -233,17 +233,19 @@ nav a p {
 .travel-table tr .itinerary-item {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .travel-table tr .itinerary-item p {
-    height: 5px;
+    height: 25%;
 }
 
 .line1 {
     height: 5px;
     width: 100%;
     position: absolute;
-    top: 10%;
+    top: 8.5%;
     background: linear-gradient(#2980b9, #8e44ad);
 }
 
@@ -251,14 +253,14 @@ nav a p {
     height: 5px;
     width: 95%;
     position: absolute;
-    top: 45%;
+    top: 48.5%;
     background: linear-gradient(#2980b9, #8e44ad);
 }
 
 .table-buttons {
     width: 100%;
     position: absolute;
-    top: 43%;
+    top: 47%;
     display: flex;
     justify-content: center;
 }
@@ -286,9 +288,9 @@ nav a p {
 /* ----------------------------------------------------------------------- */
 
 .chat-container {
-    height: 45%;
+    height: 47%;
     width: 90%;
-    margin-top: 370px;
+    margin-top: 530px;
     background: #dddddd;
     font-family: 'Lato', sans-serif;
     overflow-Y: auto;
@@ -301,7 +303,7 @@ nav a p {
     margin-left: -10px;
 
     position: fixed;
-    top: 510px;
+    top: 625px;
     background: #5b117a;
 
     z-index: 100;
@@ -422,6 +424,11 @@ nav a p {
     -ms-user-select: none;
 
     transition: all .2s cubic-bezier(0.565, -0.260, 0.255, 1.410);
+}
+
+.msg {
+    min-width: 100px;
+    max-width: 500px;
 }
 
 .other .msg {
@@ -549,7 +556,7 @@ nav a p {
 /* T Y P E */
 .typezone {
     position: fixed;
-    bottom: 20px;
+    bottom: 16px;
     left: -3px;
     width: 95%;
     height: 50px;
