@@ -308,7 +308,7 @@ nav a p {
 /* ----------------------------------------------------------------------- */
 
 .chat-container {
-    height: 47%;
+    height: 39%;
     width: 90%;
     margin-top: 530px;
     background: #dddddd;
@@ -382,7 +382,6 @@ nav a p {
 
 .chat {
     list-style: none;
-    background: url("/static/images/planes_background.bmp") 20% 0 fixed;
     margin: 0;
     padding: 0 0 50px 0;
     margin-bottom: 15px;

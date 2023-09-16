@@ -11,5 +11,5 @@ urlpatterns = [
     path('organizzatoreViaggi/userHomePage', views.userHomePage_view, name='userHomePage'),
     path('organizzatoreViaggi/invite', views.invite_view, name='invite'),
     path('organizzatoreViaggi/processInvitation_view/<int:inv_id>/', views.processInvitation_view, name='processInvitation'),
-
+    path('organizzatoreViaggi/addComment_view/<int:travel_id>/', views.addComment_view, name='addComment')
 ]

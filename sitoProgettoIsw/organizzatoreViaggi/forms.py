@@ -5,6 +5,9 @@ from django.forms import ModelForm, TextInput, PasswordInput, EmailInput
 from .models import CustomUser, Travel, Invitation
 from django.core.exceptions import ObjectDoesNotExist
 
+class CommentForm(forms.Form):
+    content = forms.CharField(widget=forms.Textarea, label='')
+
 class InvitationForm(forms.Form):
     
     receiver = forms.EmailField(label='Email destinatario', required=True)

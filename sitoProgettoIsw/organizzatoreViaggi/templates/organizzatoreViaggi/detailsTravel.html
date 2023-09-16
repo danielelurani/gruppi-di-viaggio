@@ -99,205 +99,49 @@
 
                     <!-- NOME DELLA CHAT -->
                     <div class="menu">
-                        <div class="name">Viaggio presso Arcore!</div>
-                        <div class="members"><b>Tu</b>, Silvio Berlusconi, Bruno Vespa & Renato Brunetta</div>
+                        <div class="name">Viaggio presso {{ travel.destination }}!</div>
+                        <div class="members">
+                            <b>Tu</b>
+                            {% for participant in travel.participants.all %} {% if participant != request.user %}  {{ participant.first_name }} {{ participant.last_name }}{% endif %} , {% endfor %}
+                        </div>
                     </div>
 
                     <!-- CONTAINER MESSAGGI -->
                     <ol class="chat">
-                        <!-- LINEA SEPARATRICE GIORNO -->
-                        <div class="day">IERI</div>
-
-                        <!-- MESSAGGIO -->
-                        <li class="other">
-                            <div class="msg">
-                                <div class="user">Silvio Berlusconi<span class="range admin">Admin</span></div>
-                                <p>Ciao ragazzi!</p>
-                                <p>Benvenuti sul mio canele ufficiale TikTok!</p>
-                                <time>20:17</time>
-                            </div>
-                        </li>
-
-                        <!-- MESSAGGIO -->
-                        <li class="self">
-                            <div class="msg">
-                                <p>Cosa ca...</p>
-                                <p>Questa è la chat dell'applicazione di viaggi.</p>
-                                <p>Stai già delirando?</p>
-                                <time>20:18</time>
-                            </div>
-                        </li>
-
-                        <!-- MESSAGGIO -->
-                        <li class="self">
-                            <div class="msg">
-                                <p>TEST LUNGHEZZA DEL MESSAGGIO</p>
-                                <p>La notte del 7 aprile (o 24 marzo) dell’anno 1300, dunque a trentacinque anni di età, Dante si smarrisce in una selva oscura e intricata, impossibile da descrivere tanto è angosciosa. Lui stesso non sa dire come c’è finito, poiché era pieno di sonno quando ha perso la giusta strada: a un tratto però, mentre sta albeggiando, si ritrova ai piedi di un colle, dalla cui vetta vede spuntare i primi raggi del sole. Questo, oltre al fatto che è primavera, gli ridà speranza e lo spinge a tentare la scalata del colle, dopo essersi riposato per qualche istante e aver ripensato al pericolo appena corso (come un naufrago che guarda le acque in tempesta dalle quali è appena scampato). Il poeta inizia quindi a salire la china del colle, ma con grande fatica e incertezza.</p>
-                                <time>20:18</time>
-                            </div>
-                        </li>
-
-                        <!-- MESSAGGIO -->
-                        <li class="other">
-                            <div class="msg">
-                                <p>TEST LUNGHEZZA DEL MESSAGGIO</p>
-                                <p>La notte del 7 aprile (o 24 marzo) dell’anno 1300, dunque a trentacinque anni di età, Dante si smarrisce in una selva oscura e intricata, impossibile da descrivere tanto è angosciosa. Lui stesso non sa dire come c’è finito, poiché era pieno di sonno quando ha perso la giusta strada: a un tratto però, mentre sta albeggiando, si ritrova ai piedi di un colle, dalla cui vetta vede spuntare i primi raggi del sole. </p>
-                                <time>20:18</time>
-                            </div>
-                        </li>
-
-                        <!-- MESSAGGIO -->
-                        <li class="other">
-                            <div class="msg">
-                                <div class="user">Renato Brunetta</div>
-                                <p>Silvio! Sono pronto al divertimento!</p>
-                                <time>20:18</time>
-                            </div>
-                        </li>
-
-                        <!-- MESSAGGIO -->
-                        <li class="self">
-                            <div class="msg">
-                                <p>Ma guarda te 'sto nano</p>
-                                <time>20:18</time>
-                            </div>
-                        </li>
-
-                        <!-- MESSAGGIO -->
-                        <li class="other">
-                            <div class="msg">
-                                <div class="user">Bruno Vespa</div>
-                                <p>Mi sto gia sfregando le mani</p>
-                                <time>20:18</time>
-                            </div>
-                        </li>
-
-                        <!-- MESSAGGIO -->
-                        <li class="self">
-                            <div class="msg">
-                                <img src="https://images.reporteindigo.com/wp-content/uploads/2017/09/920_mrburns_1.jpg" draggable="false"/>
-                                <time>20:19</time>
-                            </div>
-                        </li>
-
-                        <!-- MESSAGGIO -->
-                        <li class="other">
-                            <div class="msg">
-                                <div class="user">Bruno Vespa</div>
-                                <p>Lo prendo come un complimento</p>
-                                <time>20:20</time>
-                            </div>
-                        </li>
-
-                        <!-- LINEA SEPARATRICE GIORNO -->
-                        <div class="day">OGGI</div>
-
-                        <!-- MESSAGGIO -->
-                        <li class="self">
-                            <div class="msg">
-                                <p>Dunque? Qualcuno ha deciso l'itinerario?</p>
-                                <time>18:03</time>
-                            </div>
-                        </li>
-
-                        <!-- MESSAGGIO -->
-                        <li class="other">
-                            <div class="msg">
-                                <div class="user">Renato Brunetta</div>
-                                <p>Stiamo aspettando Silvio</p>
-                                <time>18:07</time>
-                            </div>
-                        </li>
-
-                        <!-- MESSAGGIO -->
-                        <li class="self">
-                            <div class="msg">
-                                <p>Ogni volta è la stessa cosa.</p>
-                                <p>Si starà divertendo a modo suo come al solito.</p>
-                                <time>18:08</time>
-                            </div>
-                        </li>
-
-                        <!-- MESSAGGIO -->
-                        <li class="other">
-                            <div class="msg">
-                                <div class="user">Bruno Vespa</div>
-                                <p>Potremo chiedere a qualcuno se sa qualcosa</p>
-                                <p>Saprei benissimo chi cercare ahahah</p>
-                                <time>18:08</time>
-                            </div>
-                        </li>
-
-                        <!-- MESSAGGIO -->
-                        <li class="self">
-                            <div class="msg">
-                                <p>Ma in che senso scusa</p>
-                                <time>18:10</time>
-                            </div>
-                        </li>
-
-                        <!-- MESSAGGIO -->
-                        <li class="other">
-                            <div class="msg">
-                                <div class="user">Bruno Vespa</div>
-                                <p>XD</p>
-                                <p>Invoco la sua debolezza!</p>
-                                <time>18:08</time>
-                            </div>
-                        </li>
-
-                        <!-- UNIONE ALLA CHAT -->
-                        <p class="notification">Ruby si è unita al gruppo <time>18:09</time></p>
-
-                        <!-- MESSAGGIO -->
-                        <li class="self">
-                            <div class="msg">
-                                <p>STO MALE<emoji class="smile"/></p>
-                                <time>18:09</time>
-                            </div>
-                        </li>
-
-                        <!-- MESSAGGIO -->
-                        <li class="other">
-                            <div class="msg">
-                                <div class="user">Ruby</div>
-                                <p>Che è sta cafonata?</p>
-                                <time>18:10</time>
-                            </div>
-                        </li>
-
-                        <!-- USCITA DALLA CHAT -->
-                        <p class="notification">Ruby ha lasciato il gruppo <time>18:11</time></p>
-
-                        <!-- MESSAGGIO -->
-                        <li class="other">
-                            <div class="msg">
-                                <div class="user">Renato Brunetta</div>
-                                <p>Lol?</p>
-                                <time>18:12</time>
-                            </div>
-                        </li>
-
-                        <!-- MESSAGGIO -->
-                        <li class="other">
-                            <div class="msg">
-                                <div class="user">Silvio<span class="range admin">Admin</span></div>
-                                <p>Cribbio!</p>
-                                <p>Ora dovrò sistemare tutto in pvt</p>
-                                <p>Oltre che col tribunale ;)</p>
-                                <time>18:15</time>
-                            </div>
-                        </li>
+                        {% for comment in comments %}
+                        {% if comment.user != request.user %}
+                            <!-- MESSAGGIO -->
+                            <li class="other">
+                                <div class="msg">
+                                    <div class="user">{{ comment.user.first_name }} {{ comment.user.last_name }}</div>
+                                    <p>{{ comment.content }}</p>
+                                </div>
+                            </li>
+                        {% else %}
+                            <!-- MESSAGGIO -->
+                            <li class="self">   
+                                <div class="msg">
+                                    <div class="user">{{ comment.user.first_name }} {{ comment.user.last_name }}</div>
+                                    <p>{{ comment.content }}</p>
+                                </div>
+                            </li>
+                        {% endif %}
+                        {% endfor %}
                     </ol>
 
                     <!-- BARRA SOTTO -->
                     <div class="typezone">
 
                         <!-- BARRA PER SCRIVERE E TASTO INVIO -->
-                        <form>
-                            <textarea type="text" placeholder="Scrivi qualcosa"></textarea>
-                            <input type="image" src="{% static 'images/invitation_icon.png' %}" class="send" value="" alt="Send"/>
-
+                        <form action="{% url 'addComment' travel.id %}" method="post">
+                            {% csrf_token %}
+                            {{ commentForm }}
+                            <input 
+                                type="image" 
+                                src="{% static 'images/invitation_icon.png' %}" 
+                                class="send" 
+                                value="" 
+                                alt="Send"/>
                         </form>
                 </div>
             </div>

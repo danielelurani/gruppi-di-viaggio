@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateUserForm, TravelForm, InvitationForm
+from .forms import CreateUserForm, TravelForm, InvitationForm, CommentForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import Travel, Invitation
+from .models import Travel, Invitation, Comment
 
 # Create your views here.
 
@@ -91,11 +92,32 @@ def processInvitation_view(request, inv_id):
 @login_required(login_url = 'login')
 def detailsTravel_view(request, travel_id):
 
-    travel = Travel.objects.get( id = travel_id)
+    commentForm = CommentForm()
+    travel = Travel.objects.get(id = travel_id)
+    comments = Comment.objects.filter(travel = travel_id)
 
-    context = {'travel': travel}
+    context = {
+        'travel': travel, 
+        'commentForm': commentForm,
+        'comments': comments
+        }
 
     return render(request, 'organizzatoreViaggi/detailsTravel.html', context)
+
+def addComment_view(request, travel_id):
+
+    this_user = request.user
+    travel = Travel.objects.get(id = travel_id)
+
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            content = comment_form.cleaned_data['content']
+            comment = Comment.objects.create(content=content, user = this_user, travel = travel)
+            comment.save()
+
+    url = reverse('detailsTravel', args=[travel_id])
+    return redirect(url)
 
 @login_required(login_url = 'login')
 def myTravels_view(request):
