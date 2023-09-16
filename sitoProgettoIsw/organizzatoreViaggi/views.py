@@ -70,31 +70,32 @@ def userHomePage_view(request):
     context = {'form': form, 'invites': invites}
     return render(request, 'organizzatoreViaggi/userHomePage.html', context)
 
-"""def processInvitation_view(request, inv_id):
+def processInvitation_view(request, inv_id):
 
-    invitation = Invitation.objects.get(id=inv_id)
+    invitation = Invitation.objects.get(id = inv_id)
+    travel = Travel.objects.get(name = invitation.travel)
 
-    if "accept" in request.POST:
+    if request.method == 'POST':
+        if "accept" in request.POST:
+            travel.participants.add(request.user)
+            invitation.delete()
+            return redirect('myTravels')
 
-        travel = invitation.travel
-        user = request.user
-
-        travel.participants.add(user)
-
-        invitation.state = True
-        invitation.save()
-
-        return redirect('myTravels')
-
-    if "decline" in request.POST:
-        invitation.delete()
-        return redirect('userHomePage')"""
+        if "reject" in request.POST:
+            invitation.delete()
+            return redirect('userHomePage')
+    return redirect('userHomePage')
 
     
 
 @login_required(login_url = 'login')
-def detailsTravel_view(request):
-    return render(request, 'organizzatoreViaggi/detailsTravel.html')
+def detailsTravel_view(request, travel_id):
+
+    travel = Travel.objects.get( id = travel_id)
+
+    context = {'travel': travel}
+
+    return render(request, 'organizzatoreViaggi/detailsTravel.html', context)
 
 @login_required(login_url = 'login')
 def myTravels_view(request):

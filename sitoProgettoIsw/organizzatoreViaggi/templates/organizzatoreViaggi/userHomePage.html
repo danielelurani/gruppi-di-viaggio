@@ -78,10 +78,10 @@
                                 <div class="buttons-and-title">
                                     <p class="invitation-sender">{{ invite.sender }}</p>
                                     <div class="button-messages-container">
-                                        <!--<form action=" url 'process_invitation' invite.id " method="post">-->
-                                        <form action="" method="post">
-                                            <button type="button" name="accept" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
-                                            <button type="button" name="reject" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <form action="{% url 'processInvitation' invite.id %}" method="post">
+                                            {% csrf_token %}
+                                            <button type="submit" name="reject" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            <button type="submit" name="accept" class="accept" data-dismiss="alert" aria-hidden="true">✓</button>
                                         </form>
                                     </div>
                                     <div class="icon">

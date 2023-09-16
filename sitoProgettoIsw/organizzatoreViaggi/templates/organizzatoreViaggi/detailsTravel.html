@@ -38,33 +38,25 @@
                 <div class="travel-table-container">
                     <div class="travel-title">
                         <div class="line1"></div>
-                        <h1>VIAGGIO PRESSO <span>ARCORE</span></h1>
+                        <h1>VIAGGIO PRESSO <span>{{ travel.name }}</span></h1>
                     </div>
 
                     <table class="travel-table">
                         <tr>
                             <th>Partecipanti</th>
-                            <td>{{ request.user }}</td>
-                            <td>Persona</td>
-                            <td>Persona</td>
-                            <td>Persona</td>
+                            {% for participant in travel.participants.all %}
+                            <td>{{ participant.first_name }} {{ participant.last_name }}</td>
+                            {% endfor %}
                         </tr>
 
                         <tr>
                             <th>Data</th>
-                            <td>25/01/2023</td>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
+                            <td>{{ travel.start_date }} - {{ travel.end_date }}</td>
                         </tr>
 
                         <tr>
                             <th>Destinazione</th>
-                            <td>Luogo</td>
+                            <td>{{ travel.destination }}</td>
                         </tr>
 
                         <tr class="itinerary-container">
@@ -83,59 +75,6 @@
                                 <p>Data</p>
                                 <p>Luogo</p>
                             </td>
-
-                            <td class="itinerary-item">
-                                <p>Nome</p>
-                                <p>Descrizione</p>
-                                <p>Data</p>
-                                <p>Luogo</p>
-                            </td>
-
-                            <td class="itinerary-item">
-                                <p>Nome</p>
-                                <p>Descrizione</p>
-                                <p>Data</p>
-                                <p>Luogo</p>
-                            </td>
-
-                            <td class="itinerary-item">
-                                <p>Nome</p>
-                                <p>Descrizione</p>
-                                <p>Data</p>
-                                <p>Luogo</p>
-                            </td>
-
-                            <td class="itinerary-item">
-                                <p>Nome</p>
-                                <p>Descrizione</p>
-                                <p>Data</p>
-                                <p>Luogo</p>
-                            </td>
-
-                            <td class="itinerary-item">
-                                <p>Nome</p>
-                                <p>Descrizione</p>
-                                <p>Data</p>
-                                <p>Luogo</p>
-                            </td>
-
-                            <td class="itinerary-item">
-                                <p>Nome</p>
-                                <p>Descrizione</p>
-                                <p>Data</p>
-                                <p>Luogo</p>
-                            </td>
-
-                            <!--
-                            <td>Luogo</td>
-                            <td>Luogo</td>
-                            <td>Luogo</td>
-                            <td>Luogo</td>
-                            <td>Luogo</td>
-                            <td>Luogo</td>
-                            <td>Luogo</td>
-                            <td>Luogo</td>
-                            -->
                         </tr>
                     </table>
                 </div>

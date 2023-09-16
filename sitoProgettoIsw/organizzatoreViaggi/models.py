@@ -41,7 +41,6 @@ class Invitation(models.Model):
     sender = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     receiver = models.EmailField(max_length=64)
     travel = models.ForeignKey(Travel, on_delete=models.CASCADE)
-    state = models.BooleanField(default=False)
 
     def __str__(self):
         return "Invitation id " + str(self.id)
