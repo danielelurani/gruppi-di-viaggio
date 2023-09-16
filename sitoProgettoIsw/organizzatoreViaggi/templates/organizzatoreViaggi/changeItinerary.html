@@ -35,7 +35,7 @@
                     {{ travel }}
 
                     <div class="button_container2">
-                        <input class="apply_button" type="submit" value="APPLICA MODIFICHE">
+                        <input class="apply_button" type="submit" value="APPLICA MODIFICHE" name="edit_travel">
                     </div>
 
                 </form>
@@ -50,102 +50,42 @@
 
                <div class="form_container">
 
-                   <form class="form_itinerary" method="post">
-
-
-
+                <form class="empty_form_itinerary" method="post" action="">
+                    {% csrf_token %}
                        <div class="form_field">
-                           <div class="input_itinerary">
 
-                               <div class="itinerary_field">
-                                   <label>Nome:</label>
-                                   <input type="text" required>
-                               </div>
-
-                               <div class="itinerary_field">
-                                   <label>Luogo:</label>
-                                   <input type="text" required>
-
-                               </div>
-                               <div class="itinerary_field">
-                                   <label>Descrizione:</label>
-                                   <input class="description_input" type="text" required>
-                               </div>
-
-                               <div class="itinerary_field">
-                                   <label>Data:</label>
-                                   <input type="text" required>
-                               </div>
-
-
-                           </div>
-
-
-                            <div class="remove_button_container">
-                                   <input class="remove_button" type="submit" value="-">
-                               </div>
-
-                       </div>
-
-
-
-                   </form>
-
-
-                   <form class="empty_form_itinerary" method="post">
-
-
-
-                       <div class="form_field">
-                           <div class="input_itinerary">
-
-                               <div class="itinerary_field">
-                                   <label>Nome:</label>
-                                   <input type="text" required>
-                               </div>
-
-                               <div class="itinerary_field">
-                                   <label>Luogo:</label>
-                                   <input type="text" required>
-
-                               </div>
-                               <div class="itinerary_field">
-                                   <label>Descrizione:</label>
-                                   <input class="description_input" type="text" required>
-                               </div>
-
-                               <div class="itinerary_field">
-                                   <label>Data:</label>
-                                   <input type="text" required>
-                               </div>
-
-
-                           </div>
-
+                            {{ emptyStageForm.as_p }}
 
                             <div class="add_button_container">
-                                   <input class="add_button" type="submit" value="+">
-                               </div>
+                                <input class="add_button" type="submit" value="+" name="add_stage">
+                            </div>
+                       </div>
+                   </form>
+
+                   <form class="form_itinerary" method="post" action="">
+                    {% csrf_token %}
+                       <div class="form_field">
+
+                            {% for stage in stages %}
+
+                            <input type="hidden" name="stage_id" value="{{ stage.id }}">
+
+                            <p>{{ stage.name }}</p>
+                            <p>{{ stage.description }}</p>
+                            <p>{{ stage.date }}</p>
+
+                            <div class="remove_button_container">
+                                <input class="remove_button" type="submit" value="-" name="remove_stage">
+                            </div>
+
+                            {% endfor %}
 
                        </div>
 
-
-
                    </form>
-
-
-
                </div>
-
-
            </div>
-
-
        </div>
-
-
    </div>
-
-
 </body>
 </html>

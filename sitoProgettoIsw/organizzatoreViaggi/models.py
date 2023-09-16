@@ -22,7 +22,8 @@ class Stage(models.Model):
     id = models.AutoField(primary_key=True)
     travel = models.ForeignKey(Travel, on_delete=models.CASCADE)
     name = models.CharField(max_length=64)
-    date = models.DateTimeField()
+    description = models.CharField(max_length=250)
+    date = models.DateField()
 
     def __str__ (self):
         return self.name

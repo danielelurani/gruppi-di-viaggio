@@ -2,8 +2,39 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 from django.forms import ModelForm, TextInput, PasswordInput, EmailInput
-from .models import CustomUser, Travel, Invitation
+from .models import CustomUser, Travel, Invitation, Stage
 from django.core.exceptions import ObjectDoesNotExist
+
+class StageForm(ModelForm):
+    class Meta:
+        model = Stage
+        fields = [
+            'name',
+            'description',
+            'date'
+        ]
+        labels = {
+            'name': 'Nome Tappa',
+            'description': 'Descrizione',
+            'date': 'Data'
+        }
+        widgets = {
+            'date': forms.DateInput(attrs={'type': 'date', 'class': 'dateField'}),
+            'description': forms.Textarea()
+        }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        date = cleaned_data.get('date')
+
+        if date > self.travel.end_date:
+            raise forms.ValidationError("La data della tappa non può essere dopo la fine del viaggio!")
+        if date < self.travel.start_date:
+            raise forms.ValidationError("La data della tappa non può essere prima dell'inizio del viaggio!")
+
+        return cleaned_data
+        
+
 
 class CommentForm(forms.Form):
     content = forms.CharField(widget=forms.Textarea, label='')

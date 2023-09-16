@@ -62,19 +62,13 @@
                         <tr class="itinerary-container">
                             <th>Itinerario</th>
 
+                            {% for stage in stages %}
                             <td class="itinerary-item">
-                                <p>Ristorante da Ciro</p>
-                                <p>Viaggio per roma bellissima fantastico incredibile pazzesco malato super top</p>
-                                <p>Data</p>
-                                <p>Napoli</p>
+                                <p>{{ stage.name }}</p>
+                                <p>{{ stage.description }}</p>
+                                <p>{{ stage.date }}</p>
                             </td>
-
-                            <td class="itinerary-item">
-                                <p>Nome</p>
-                                <p>Descrizione</p>
-                                <p>Data</p>
-                                <p>Luogo</p>
-                            </td>
+                            {% endfor %}
                         </tr>
                     </table>
                 </div>

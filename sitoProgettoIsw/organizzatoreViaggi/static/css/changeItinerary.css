@@ -218,13 +218,6 @@ nav a p {
     overflow-y: scroll;
 }
 
-.form_field {
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 10px;
-    border-bottom: dashed 1.5px;;
-}
-
 .input_itinerary{
     height:20%;
     width: 95%;

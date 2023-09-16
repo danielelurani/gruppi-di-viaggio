@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateUserForm, TravelForm, InvitationForm, CommentForm
+from .forms import CreateUserForm, TravelForm, InvitationForm, CommentForm, StageForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import Travel, Invitation, Comment
+from .models import Travel, Invitation, Comment, Stage
 
 # Create your views here.
 
@@ -56,6 +56,7 @@ def signup_view(request):
 def userHomePage_view(request):
 
     if request.method == 'POST':
+
         form = TravelForm(request.POST)
         if form.is_valid():
             travel = form.save(commit=False)
@@ -63,6 +64,7 @@ def userHomePage_view(request):
             travel.participants.add(request.user)
             travel.save()
             return redirect('myTravels')
+        
     else:
         form = TravelForm()
 
@@ -95,11 +97,13 @@ def detailsTravel_view(request, travel_id):
     commentForm = CommentForm()
     travel = Travel.objects.get(id = travel_id)
     comments = Comment.objects.filter(travel = travel_id)
+    stages = Stage.objects.filter(travel = travel_id)
 
     context = {
         'travel': travel, 
         'commentForm': commentForm,
-        'comments': comments
+        'comments': comments,
+        'stages': stages
         }
 
     return render(request, 'organizzatoreViaggi/detailsTravel.html', context)
@@ -131,16 +135,37 @@ def myTravels_view(request):
 def changeItinerary_view(request, travel_id):
 
     travel = Travel.objects.get(id = travel_id)
+    form = TravelForm(instance=travel)
+    stages = Stage.objects.filter(travel = travel_id)
 
     if request.method == "POST":
-        form = TravelForm(request.POST, instance=travel)
-        if form.is_valid():
-            form.save()
-            return redirect('myTravels')
+        if "edit_travel" in request.POST:
+            form = TravelForm(request.POST, instance=travel)
+            if form.is_valid():
+                form.save()
+                return redirect('myTravels')
+        
+        if "add_stage" in request.POST:
+            emptyStageForm = StageForm(request.POST)
+            emptyStageForm.travel = travel
+            if emptyStageForm.is_valid():
+                stage = emptyStageForm.save(commit=False)
+                stage.travel = travel
+                stage.save()
+                url = reverse('detailsTravel', args=[travel_id])
+                return redirect(url)
+        if "remove_stage" in request.POST:
+            stage_id = request.POST.get('stage_id')
+            stage_to_delete = Stage.objects.get(id = stage_id)
+            stage_to_delete.delete()
+            url = reverse('detailsTravel', args=[travel_id])
+            return redirect(url)
+
     else:
         form = TravelForm(instance=travel)
+        emptyStageForm = StageForm()
 
-    context = { 'travel': form}
+    context = { 'travel': form, 'emptyStageForm': emptyStageForm, 'stages': stages}
 
     return render(request, 'organizzatoreViaggi/changeItinerary.html', context)
 
