@@ -84,7 +84,9 @@
                 <!-- PULSANTI DI MOFIFICA E INVITI -->
                 <div class="table-buttons">
                     <div class="button-modify">
-                        <button type="button" data-dismiss="alert" aria-hidden="true">Modifica Itinerario</button>
+                        <a href="{% url 'changeItinerary' travel.id %}">
+                            <button type="button" data-dismiss="alert" aria-hidden="true">Modifica Itinerario</button>
+                        </a>
                     </div>
 
                     <div class="button-invite">

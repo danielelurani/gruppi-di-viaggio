@@ -29,43 +29,16 @@
                <h2 style="text-align: center;">MODIFICA DATI VIAGGIO</h2>
 
 
-                <form class="form_travel" method="post">
+                <form class="form_travel" method="post" action="">
 
-                        <div class="textField">
-                            <label>Nome viaggio:</label>
-                            <input type="text" required>
+                    {% csrf_token %}
+                    {{ travel }}
 
-                        </div>
-
-                        <div class="textField">
-                            <label>Destinazione:</label>
-                            <input type="text" required>
-
-                        </div>
-
-                        <div class="textField">
-                             <label>Data partenza:</label>
-                            <input type="text" required>
-
-                        </div>
-
-                        <div class="textField">
-                            <label>Data ritorno:</label>
-                            <input type="text" required>
-
-                        </div>
-
-                            <!--
-                           {% csrf_token %}
-                           {{ form.newTripForm }}
-                            -->
+                    <div class="button_container2">
+                        <input class="apply_button" type="submit" value="APPLICA MODIFICHE">
+                    </div>
 
                 </form>
-
-               <div class="button_container2">
-                   <input class="apply_button" type="submit" value="APPLICA MODIFICHE">
-               </div>
-
            </div>
 
 

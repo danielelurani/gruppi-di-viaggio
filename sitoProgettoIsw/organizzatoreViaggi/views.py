@@ -128,8 +128,21 @@ def myTravels_view(request):
 
 
 @login_required(login_url= 'login')
-def changeItinerary_view(request):
-    return render(request, 'organizzatoreViaggi/changeItinerary.html')
+def changeItinerary_view(request, travel_id):
+
+    travel = Travel.objects.get(id = travel_id)
+
+    if request.method == "POST":
+        form = TravelForm(request.POST, instance=travel)
+        if form.is_valid():
+            form.save()
+            return redirect('myTravels')
+    else:
+        form = TravelForm(instance=travel)
+
+    context = { 'travel': form}
+
+    return render(request, 'organizzatoreViaggi/changeItinerary.html', context)
 
 @login_required(login_url= 'login')
 def invite_view(request):
