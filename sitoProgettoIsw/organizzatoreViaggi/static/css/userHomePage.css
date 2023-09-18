@@ -102,12 +102,12 @@ nav a p {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin: auto;
+    margin-left: 5%;
 }
 
 .main-sx {
     height: 100%;
-    width: 50%;
+    width: 30%;
     border-right: dashed 1.5px;
 }
 
@@ -158,31 +158,46 @@ nav a p {
 
 .main-c {
     height: 100%;
-    width: 100%;
-    padding-right: 5%;
-    border-right: dashed 1.5px;
-}
-
-input.textField{
-
-    width: 100%;
-    padding: 0 5px;
-    font-size: 16px;
-    background: none;
-    border: none;
-    outline: none;
-    position: relative;
-    border-bottom: 2px solid #adadad;
-  }
-
-.main-c form {
+    width: 40%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    border-right: dashed 1.5px;
     flex-direction: column;
-    width: 102%;
-    margin-top: 5%;
-    margin-left: 10px;
+}
+
+.main-c h2 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.main-c form {
+    margin-top: 15px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textField, .dateField {
+    width: 220px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: solid 1px #8e44ad;
+}
+
+form p {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    margin-top: 10px;
+}
+
+form p label {
+    width: 220px;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: bold;
 }
 
 .main-c form h2 {
@@ -197,53 +212,6 @@ input.textField{
     border-right: transparent;
 }
 
-form .textField{
-    position: relative;
-    border-bottom: 2px solid #ADADAD;
-    margin: 12px 0;
-}
-
-.textField input{
-    width: 100%;
-    padding: 0 5px;
-    height: 40px;
-    font-size: 16px;
-    border: none;
-    background: none;
-    outline: none;
-}
-
-.textField label {
-    position: absolute;
-    top: 60%;
-    left: 2px;
-    color: #adadad;
-    transform: translateY(-50%);
-    font-size: 16px;
-    pointer-events: none;
-}
-
-.textField span::before {
-    content: '';
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: #2691d9;
-    transition: .5s;
-}
-
-.textField input:focus ~ label,
-.textField input:valid ~ label {
-    top: -5px;
-    color: #2691d9;
-}
-
-.textField input:focus ~ span::before,
-.textField input:valid ~ span::before {
-    width: 100%;
-}
 
 input[type="submit"] {
     width: 80%;
@@ -266,9 +234,11 @@ input[type="submit"]:hover {
 
 .main-dx {
     height: 100%;
-    width: 50%;
-    margin-left: 5%;
+    width: 30%;
     margin-top: 5%;
+
+    display: flex;
+    justify-content: center;
 }
 
 .main-dx .invitations-container .invitations-list {
