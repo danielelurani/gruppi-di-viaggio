@@ -154,6 +154,7 @@ def changeItinerary_view(request, travel_id):
                 stage.save()
                 url = reverse('detailsTravel', args=[travel_id])
                 return redirect(url)
+            
         if "remove_stage" in request.POST:
             stage_id = request.POST.get('stage_id')
             stage_to_delete = Stage.objects.get(id = stage_id)

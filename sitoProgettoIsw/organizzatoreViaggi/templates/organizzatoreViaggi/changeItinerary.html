@@ -61,13 +61,10 @@
                <div class="title_container">
                    <h2>RIMUOVI TAPPE</h2>
                </div>
-
+               {% for stage in stages %}
                <form class="form_itinerary" method="post" action="">
                    {% csrf_token %}
-
                    <div class="form_field">
-                        {% for stage in stages %}
-
                        <div class="stage-container">
                            <input type="hidden" name="stage_id" value="{{ stage.id }}">
                             <span>Nome:</span>
@@ -81,9 +78,9 @@
                                 <input class="remove_button" type="submit" value="RIMUOVI TAPPA" name="remove_stage">
                             </div>
                        </div>
-                        {% endfor %}
                    </div>
                </form>
+               {% endfor %}
            </div>
        </div>
    </div>

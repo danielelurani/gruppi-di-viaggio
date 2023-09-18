@@ -254,7 +254,6 @@ nav a p {
 
 .form_container{
     width: 100%;
-    overflow-y: scroll;
 }
 
 
@@ -265,12 +264,13 @@ nav a p {
     display: flex;
     align-items: center;
     flex-direction: column;
+    overflow-Y: auto;
+    overflow-y: scroll;
 }
 
 .form_itinerary {
     width: 100%;
     margin: 0;
-    overflow-Y: auto;
 
 }
 
