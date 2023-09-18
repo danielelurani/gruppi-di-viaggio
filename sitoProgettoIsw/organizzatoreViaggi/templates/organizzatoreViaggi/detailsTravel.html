@@ -44,6 +44,9 @@
                     <table class="travel-table">
                         <tr>
                             <th>Partecipanti</th>
+
+                            <td>{{ request.user }}</td>
+
                             {% for participant in travel.participants.all %}
                             <td>{{ participant.first_name }} {{ participant.last_name }}</td>
                             {% endfor %}
@@ -51,25 +54,27 @@
 
                         <tr>
                             <th>Data</th>
-                            <td>{{ travel.start_date }} - {{ travel.end_date }}</td>
+                            <td class="date-item" colspan="200">{{ travel.start_date }} - {{ travel.end_date }}</td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
                         </tr>
 
                         <tr>
                             <th>Destinazione</th>
-                            <td>{{ travel.destination }}</td>
+                            <td class="destination-item" colspan="200">{{ travel.destination }}</td>
                         </tr>
 
                         <tr class="itinerary-container">
                             <th>Itinerario</th>
 
                             {% for stage in stages %}
-                            <td class="itinerary-item">
+                            <td colspan="200" class="itinerary-item">
                                 <p>{{ stage.name }}</p>
                                 <p>{{ stage.description }}</p>
                                 <p>{{ stage.date }}</p>
                             </td>
                             {% endfor %}
-                        </tr>
                     </table>
                 </div>
 
