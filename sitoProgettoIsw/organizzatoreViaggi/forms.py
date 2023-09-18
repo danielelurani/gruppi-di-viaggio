@@ -20,7 +20,7 @@ class StageForm(ModelForm):
         }
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date', 'class': 'dateField'}),
-            'description': forms.Textarea()
+            'description': forms.Textarea(attrs={'style':'resize:none;'})
         }
 
     def clean(self):
@@ -92,11 +92,11 @@ class TravelForm(ModelForm):
             'end_date': 'Data fine'
         }
         widgets = {
-                'start_date': forms.DateInput(attrs={'type': 'date', 'class': 'dateField'}),
-                'end_date': forms.DateInput(attrs={'type': 'date', 'class': 'dateField'}),
-                'name': forms.DateInput(attrs={'class': 'textField'}),
-                'destination': forms.DateInput(attrs={'class': 'textField'})
-            }
+            'start_date': forms.DateInput(attrs={'type': 'date', 'class': 'dateField'}),
+            'end_date': forms.DateInput(attrs={'type': 'date', 'class': 'dateField'}),
+            'name': forms.DateInput(attrs={'class': 'textField'}),
+            'destination': forms.DateInput(attrs={'class': 'textField'})
+        }
     
     def clean(self):
         cleaned_data = super().clean()
