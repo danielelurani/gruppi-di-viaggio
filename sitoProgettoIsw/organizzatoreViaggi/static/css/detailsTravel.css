@@ -154,6 +154,7 @@ nav a p {
 .travel-table-container h1 span {
     color: #000000;
     text-shadow: .1px .1px .2px #007fff, 0 0 .1em #8f00ff, 0 0 .1em #007fff;
+    text-transform: uppercase;
 }
 
 ::-webkit-scrollbar {
@@ -176,6 +177,7 @@ nav a p {
 
 .travel-table {
     width: 100%;
+    min-width: 100%;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -184,6 +186,7 @@ nav a p {
     font-family: sans-serif;
     min-width: 100%;
     overflow-X: auto;
+    empty-cells: show;
 }
 
 .travel-table tr {
@@ -225,9 +228,14 @@ nav a p {
     text-align: left;
 }
 
+.date-item, .destination-item {
+    float: left;
+}
+
 .itinerary-container {
     display: flex;
     flex-direction: row;
+    height: 230px;
 }
 
 .travel-table tr .itinerary-item {
@@ -310,8 +318,8 @@ nav a p {
 .chat-container {
     height: 39%;
     width: 90%;
-    margin-top: 530px;
-    background: #dddddd;
+    margin-top: 540px;
+    background-image: url(../images/planes_background.bmp);
     font-family: 'Lato', sans-serif;
     overflow-Y: auto;
     border: solid 3px;
@@ -323,7 +331,7 @@ nav a p {
     margin-left: -10px;
 
     position: fixed;
-    top: 625px;
+    top: 665px;
     background: #5b117a;
 
     z-index: 100;
@@ -348,6 +356,7 @@ nav a p {
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
+    }
 }
 
 
@@ -593,9 +602,9 @@ nav a p {
 /* T Y P E */
 .typezone {
     position: fixed;
-    bottom: 16px;
-    left: -3px;
-    width: 95%;
+    bottom: 58px;
+    left: -15px;
+    width: 98%;
     height: 50px;
     z-index: 99;
     border: none;
