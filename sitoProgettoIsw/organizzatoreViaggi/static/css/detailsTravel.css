@@ -143,7 +143,8 @@ nav a p {
 .travel-table-container h1 {
     text-align: center;
     height: 30px;
-    width: 420px;
+    padding-left: 30px;
+    padding-right: 30px;
     background: white;
     margin-bottom: 1px;
     color: black;
@@ -187,6 +188,7 @@ nav a p {
     min-width: 100%;
     overflow-X: auto;
     empty-cells: show;
+    border-bottom: 2px solid #5b117a;
 }
 
 .travel-table tr {
@@ -198,6 +200,7 @@ nav a p {
     background-color: #5b117a;
     color: #ffffff;
     text-align: left;
+    width: 50px;
 }
 
 .travel-table th, .travel-table td {
@@ -236,6 +239,7 @@ nav a p {
     display: flex;
     flex-direction: row;
     height: 230px;
+    width: 163px;
 }
 
 .travel-table tr .itinerary-item {
@@ -270,7 +274,7 @@ nav a p {
         height: 5px;
         width: 95%;
         position: absolute;
-        top: 51.5%;
+        top: 49.5%;
         background: linear-gradient(#2980b9, #8e44ad);
     }
 }
@@ -287,7 +291,7 @@ nav a p {
     .table-buttons{
         width: 100%;
         position: absolute;
-        top: 50%;
+        top: 48%;
         display: flex;
         justify-content: center;
     }
@@ -348,7 +352,7 @@ nav a p {
         margin-left: -10px;
     
         position: fixed;
-        top: 660px;
+        top: 670px;
         background: #5b117a;
     
         z-index: 100;
