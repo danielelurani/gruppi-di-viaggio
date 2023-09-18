@@ -200,7 +200,8 @@ nav a p {
     background-color: #5b117a;
     color: #ffffff;
     text-align: left;
-    width: 50px;
+    width: 150px;
+    min-width: 150px;
 }
 
 .travel-table th, .travel-table td {
@@ -209,6 +210,7 @@ nav a p {
 
 .travel-table td {
     width: 200px;
+    max-width: 200px;
     min-width: 50px;
     text-align: center;
 }
@@ -225,11 +227,6 @@ nav a p {
     border-bottom: 2px solid #5b117a;
 }
 
-.travel-table tr th {
-    width: 150px;
-    min-width: 50px;
-    text-align: left;
-}
 
 .date-item, .destination-item {
     float: left;
@@ -239,7 +236,6 @@ nav a p {
     display: flex;
     flex-direction: row;
     height: 230px;
-    width: 163px;
 }
 
 .travel-table tr .itinerary-item {
@@ -251,6 +247,8 @@ nav a p {
 
 .travel-table tr .itinerary-item p {
     height: 25%;
+    width: 100%;
+    overflow: hidden;
 }
 
 .line1 {

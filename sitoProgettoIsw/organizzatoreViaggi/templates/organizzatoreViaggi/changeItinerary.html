@@ -2,12 +2,13 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <title>Modifica Itinerario</title>
     <link rel="stylesheet" href="{% static 'css/changeItinerary.css'%}">
 </head>
+
 <body>
    <div class="page-container">
        <nav>
@@ -23,67 +24,66 @@
        </nav>
 
        <div class="main">
-
            <div class="main-sx">
-
-               <h2 style="text-align: center;">MODIFICA DATI VIAGGIO</h2>
-
+               <h2>MODIFICA DATI VIAGGIO</h2>
 
                 <form class="form_travel" method="post" action="">
-
                     {% csrf_token %}
                     {{ travel }}
 
                     <div class="button_container2">
                         <input class="apply_button" type="submit" value="APPLICA MODIFICHE" name="edit_travel">
                     </div>
-
                 </form>
            </div>
 
-
-           <div class = "main-dx">
-
+           <div class="main-c">
                <div class="title_container">
                    <h2>MODIFICA ITINERARIO</h2>
                </div>
 
                <div class="form_container">
+                    <form class="empty_form_itinerary" method="post" action="">
+                        {% csrf_token %}
 
-                <form class="empty_form_itinerary" method="post" action="">
-                    {% csrf_token %}
-                       <div class="form_field">
-
+                        <div class="form_field">
                             {{ emptyStageForm.as_p }}
 
                             <div class="add_button_container">
-                                <input class="add_button" type="submit" value="+" name="add_stage">
+                                <input class="add_button" type="submit" value="AGGIUNGI TAPPA" name="add_stage">
                             </div>
                        </div>
                    </form>
+                </div>
+           </div>
 
-                   <form class="form_itinerary" method="post" action="">
-                    {% csrf_token %}
-                       <div class="form_field">
+           <div class = "main-dx">
+               <div class="title_container">
+                   <h2>RIMUOVI TAPPE</h2>
+               </div>
 
-                            {% for stage in stages %}
+               <form class="form_itinerary" method="post" action="">
+                   {% csrf_token %}
 
-                            <input type="hidden" name="stage_id" value="{{ stage.id }}">
+                   <div class="form_field">
+                        {% for stage in stages %}
 
-                            <p>{{ stage.name }}</p>
-                            <p>{{ stage.description }}</p>
-                            <p>{{ stage.date }}</p>
+                       <div class="stage-container">
+                           <input type="hidden" name="stage_id" value="{{ stage.id }}">
+                            <span>Nome:</span>
+                            <p> {{ stage.name }}</p>
+                           <span>Descrizione:</span>
+                            <p class="description-p"> {{ stage.description }}</p>
+                           <span>Data:</span>
+                            <p> {{ stage.date }}</p>
 
                             <div class="remove_button_container">
-                                <input class="remove_button" type="submit" value="-" name="remove_stage">
+                                <input class="remove_button" type="submit" value="RIMUOVI TAPPA" name="remove_stage">
                             </div>
-
-                            {% endfor %}
-
                        </div>
-
-                   </form>
-               </div>
+                        {% endfor %}
+                   </div>
+               </form>
            </div>
        </div>
    </div>
