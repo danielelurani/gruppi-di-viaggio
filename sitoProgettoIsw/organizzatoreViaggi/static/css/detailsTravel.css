@@ -248,7 +248,7 @@ nav a p {
 .travel-table tr .itinerary-item p {
     height: 25%;
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .line1 {
