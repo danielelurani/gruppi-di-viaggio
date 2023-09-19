@@ -2,19 +2,13 @@
 
 <!DOCTYPE html>
 <html lang="it">
-
-<html>
-
     <head>
-
         <meta charset="UTF-8">
         <title>Pagina inviti</title>
         <link rel="stylesheet" href="{% static 'css/invite.css'%}">
-
     </head>
     
     <body>
-
         <div class="loginFormContainer">
             <div class="my-travels-container">
                 <a href="{% url 'myTravels' %}">
@@ -28,14 +22,9 @@
             <form method="post" action="">
                 {% csrf_token %}
                 {{ form.as_p }}
-                
 
-                <input type="submit" value="Manda invito">
-
+                <input type="submit" value="MANDA INVITO">
             </form>
-
         </div>
-
     </body>
-
 </html>
