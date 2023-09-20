@@ -207,9 +207,16 @@ def expenses_view(request, travel_id):
     participants = travel.participants.count()
     expenses = Expense.objects.filter(travel = travel_id)
 
-    # Calculate the sum of all expense prices
+    # Calcola il totale di tutte le spese
     total_expense = expenses.aggregate(total_price = Sum('price'))['total_price']
-    expense_for_person = total_expense / participants
+
+    # Se ci sono spese
+    if total_expense is not None:
+        # Dividi per numero di partecipanti al viaggio
+        expense_for_person = total_expense / participants
+    else:
+        total_expense = 0
+        expense_for_person = 0
 
     context = {
         'form': form,
