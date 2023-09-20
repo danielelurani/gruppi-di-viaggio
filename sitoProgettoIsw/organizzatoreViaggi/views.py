@@ -2,10 +2,12 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import CreateUserForm, TravelForm, InvitationForm, CommentForm, StageForm, ExpenseForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Travel, Invitation, Comment, Stage, Expense
 from django.db.models import Sum
+
 
 # Create your views here.
 
@@ -19,18 +21,19 @@ def login_view(request):
         return redirect('userHomePage')
     else:
         if request.method == 'POST':
-            username = request.POST.get('username')
-            password = request.POST.get('password')
+            authForm = AuthenticationForm(request, request.POST)
+            if authForm.is_valid():
+                user = authForm.get_user()
 
-            user = authenticate(request, username = username, password = password)
+                if user is not None:
+                    login(request, user)
+                    return redirect('/organizzatoreViaggi/userHomePage')
+                else:
+                    messages.info(request, 'Username o password errati!')
+        else:
+            authForm = AuthenticationForm()
 
-            if user is not None:
-                login(request, user)
-                return redirect('/organizzatoreViaggi/userHomePage')
-            else:
-                messages.info(request, 'Username o password errati!')
-
-        context = {}
+        context = {'authForm': authForm}
         return render(request, 'organizzatoreViaggi/login.html', context)
 
 def signup_view(request):
