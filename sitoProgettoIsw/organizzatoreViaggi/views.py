@@ -17,6 +17,8 @@ def logout_user(request):
 
 def login_view(request):
 
+    #message = ''
+
     if request.user.is_authenticated:
         return redirect('userHomePage')
     else:
@@ -29,11 +31,14 @@ def login_view(request):
                     login(request, user)
                     return redirect('/organizzatoreViaggi/userHomePage')
                 else:
+                    #message = 'Username o password errati!'
                     messages.info(request, 'Username o password errati!')
         else:
             authForm = AuthenticationForm()
 
         context = {'authForm': authForm}
+
+        #context = {'login_error': message}
         return render(request, 'organizzatoreViaggi/login.html', context)
 
 def signup_view(request):
@@ -67,7 +72,7 @@ def userHomePage_view(request):
             travel.participants.add(request.user)
             travel.save()
             return redirect('myTravels')
-        
+
     else:
         form = TravelForm()
 
@@ -147,7 +152,7 @@ def changeItinerary_view(request, travel_id):
             if form.is_valid():
                 form.save()
                 return redirect('myTravels')
-        
+
         if "add_stage" in request.POST:
             emptyStageForm = StageForm(request.POST)
             emptyStageForm.travel = travel
@@ -157,7 +162,7 @@ def changeItinerary_view(request, travel_id):
                 stage.save()
                 url = reverse('detailsTravel', args=[travel_id])
                 return redirect(url)
-            
+
         if "remove_stage" in request.POST:
             stage_id = request.POST.get('stage_id')
             stage_to_delete = Stage.objects.get(id = stage_id)
