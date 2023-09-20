@@ -10,6 +10,8 @@ urlpatterns = [
     path('organizzatoreViaggi/changeItinerary/<int:travel_id>/', views.changeItinerary_view, name='changeItinerary'),
     path('organizzatoreViaggi/userHomePage', views.userHomePage_view, name='userHomePage'),
     path('organizzatoreViaggi/invite', views.invite_view, name='invite'),
+    path('organizzatoreViaggi/expenses/<int:travel_id>/', views.expenses_view, name='expenses'),
     path('organizzatoreViaggi/processInvitation_view/<int:inv_id>/', views.processInvitation_view, name='processInvitation'),
-    path('organizzatoreViaggi/addComment_view/<int:travel_id>/', views.addComment_view, name='addComment')
+    path('organizzatoreViaggi/addComment_view/<int:travel_id>/', views.addComment_view, name='addComment'),
+    path('organizzatoreViaggi/addExpense_view/<int:travel_id>/', views.addExpense_view, name='addExpense')
 ]

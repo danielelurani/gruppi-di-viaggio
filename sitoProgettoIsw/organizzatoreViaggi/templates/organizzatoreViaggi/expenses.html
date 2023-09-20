@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="it">
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Gestione Spese</title>
+        <link rel="stylesheet" href="{% static 'css/expenses.css'%}">
+    </head>
+
+    <body>
+        <div class="page-container">
+
+            <!-- NAVBAR -->
+            <nav>
+
+                <a href="{% url 'detailsTravel' travel.id %}">
+                    <img src="{% static 'images/plane_icon.png' %}" />
+                    <p>Torna al viaggio</p>
+                </a>
+
+                <!-- NOME PAGINA -->
+                <h1>GESTIONE SPESE</h1> 
+
+                <!-- ICONA LOGOUT -->
+                <a href="{% url 'logout' %}">
+                    <img src="{% static 'images/logout_icon.png' %}" />
+                    <p>Log-out</p>
+                </a>
+            </nav>
+
+            <div class="main-c">
+
+                <!-- TABELLA VIAGGIO -->
+                <div class="travel-table-container">
+                    <div class="travel-title">
+                        <div class="line1"></div>
+                        <h1>VIAGGIO PRESSO <span> {{ travel.destination }}</span></h1>
+                    </div>
+
+                    <table class="travel-table">
+                        <tr>
+                            <th>Nome spesa</th>
+                            {% for expense in expenses %}
+                            <td>{{ expense.name }}</td>
+                            {% endfor %}
+                        </tr>
+
+                        <tr>
+                            <th>Costo</th>
+                            {% for expense in expenses %}
+                            <td>{{ expense.price }} €</td>
+                            {% endfor %}
+                        </tr>
+
+                        <tr>
+                            <th>Costo totale</th>
+                            <td class="destination-item" colspan="200">{{totalExp}} €</td>
+                        </tr>
+
+                        <tr>
+                            <th>Costo per persona</th>
+
+                            <td colspan="200" class="date-item"><p>{{expForP}} €</p></td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                    </table>
+                </div>
+
+                <div class="line2"></div>
+
+                    <div class="form-c">
+                        <div class="title_container">
+                            <h2>NUOVA SPESA</h2>
+                        </div>
+        
+                        <div class="form_container">
+                            <form class="empty_form_itinerary" method="post" action="{% url 'addExpense' travel.id %}">
+                                {% csrf_token %}
+                                <div class="form_field">
+                                    {{ form.as_p }}
+                                    <div class="add_button_container">
+                                        <input class="add_button" type="submit" value="AGGIUNGI SPESA">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

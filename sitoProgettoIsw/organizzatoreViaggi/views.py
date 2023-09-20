@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateUserForm, TravelForm, InvitationForm, CommentForm, StageForm
+from .forms import CreateUserForm, TravelForm, InvitationForm, CommentForm, StageForm, ExpenseForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import Travel, Invitation, Comment, Stage
+from .models import Travel, Invitation, Comment, Stage, Expense
+from django.db.models import Sum
 
 # Create your views here.
 
@@ -190,3 +190,40 @@ def invite_view(request):
 
     context = { 'form': form }
     return render(request, 'organizzatoreViaggi/invite.html', context)
+
+@login_required(login_url= 'login')
+def expenses_view(request, travel_id):
+
+    form = ExpenseForm()
+    travel = Travel.objects.get(id = travel_id)
+    participants = travel.participants.count()
+    expenses = Expense.objects.filter(travel = travel_id)
+
+    # Calculate the sum of all expense prices
+    total_expense = expenses.aggregate(total_price = Sum('price'))['total_price']
+    expense_for_person = total_expense / participants
+
+    context = {
+        'form': form,
+        'travel': travel,
+        'expenses': expenses,
+        'totalExp': total_expense,
+        'expForP': expense_for_person
+        }
+
+    return render(request, 'organizzatoreViaggi/expenses.html', context)
+
+def addExpense_view(request, travel_id):
+
+    travel = Travel.objects.get(id = travel_id)
+
+    if request.method == "POST":
+        form = ExpenseForm(request.POST)
+        if form.is_valid():
+            name  = form.cleaned_data['name']
+            price = form.cleaned_data['price']
+            expense = Expense.objects.create(name = name, price = price, travel = travel)
+            expense.save()
+
+    url = reverse('expenses', args=[travel_id])
+    return redirect(url)

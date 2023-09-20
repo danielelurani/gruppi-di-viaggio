@@ -301,9 +301,14 @@ nav a p {
 
 .button-invite {
     margin-left: 40px;
+    margin-right: 40px;
 }
 
-.button-modify button, .button-invite button {
+.button-expenses {
+    margin-left: 40px;
+}
+
+.button-modify button, .button-invite button, .button-expenses button {
     height: 40px;
     width: 200px;
     border: 2px solid #5b117a;

@@ -38,14 +38,12 @@
                 <div class="travel-table-container">
                     <div class="travel-title">
                         <div class="line1"></div>
-                        <h1>VIAGGIO PRESSO <span>{{ travel.name }}</span></h1>
+                        <h1>VIAGGIO PRESSO <span>{{ travel.destination }}</span></h1>
                     </div>
 
                     <table class="travel-table">
                         <tr>
                             <th>Partecipanti</th>
-
-                            <td>{{ request.user }}</td>
 
                             {% for participant in travel.participants.all %}
                             <td>{{ participant.first_name }} {{ participant.last_name }}</td>
@@ -91,6 +89,12 @@
                     <div class="button-invite">
                         <a href="{% url 'invite'%}">
                             <button type="button" data-dismiss="alert" aria-hidden="true">Manda Inviti</button>
+                        </a>
+                    </div>
+
+                    <div class="button-expenses">
+                        <a href="{% url 'expenses' travel.id %}">
+                            <button type="button" data-dismiss="alert" aria-hidden="true">Gestisci Spese</button>
                         </a>
                     </div>
                 </div>

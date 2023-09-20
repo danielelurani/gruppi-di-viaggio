@@ -39,6 +39,10 @@ class StageForm(ModelForm):
 class CommentForm(forms.Form):
     content = forms.CharField(widget=forms.Textarea, label='')
 
+class ExpenseForm(forms.Form):
+    name = forms.CharField(label = 'Nome spesa')
+    price = forms.FloatField(label = 'Costo')
+
 class InvitationForm(forms.Form):
     
     receiver = forms.EmailField(label='Email destinatario', required=True)

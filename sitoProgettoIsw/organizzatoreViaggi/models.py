@@ -45,4 +45,13 @@ class Invitation(models.Model):
 
     def __str__(self):
         return "Invitation id " + str(self.id)
+    
+class Expense(models.Model):
+    id = models.AutoField(primary_key=True)
+    travel = models.ForeignKey(Travel, on_delete=models.CASCADE)
+    name = models.CharField(max_length=64)
+    price = models.FloatField()
+
+    def __str__(self):
+        return self.name
 
