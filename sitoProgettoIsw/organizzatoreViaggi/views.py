@@ -17,7 +17,7 @@ def logout_user(request):
 
 def login_view(request):
 
-    #message = ''
+    message = ''
 
     if request.user.is_authenticated:
         return redirect('userHomePage')
@@ -31,14 +31,14 @@ def login_view(request):
                     login(request, user)
                     return redirect('/organizzatoreViaggi/userHomePage')
                 else:
-                    #message = 'Username o password errati!'
-                    messages.info(request, 'Username o password errati!')
+                    message = 'Username o password errati!'
+                    messages.info(request, message)
         else:
             authForm = AuthenticationForm()
 
-        context = {'authForm': authForm}
+        context = {'authForm': authForm, 'login_error': message}
 
-        #context = {'login_error': message}
+
         return render(request, 'organizzatoreViaggi/login.html', context)
 
 def signup_view(request):
