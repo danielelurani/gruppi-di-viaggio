@@ -37,6 +37,7 @@ class TestViews(TestCase):
         }
 
 
+    """ TEST LOGIN """
     def test_login_view_GET(self):
         #simulazione richiesta di tipo get all'url specificato
         response = self.client.get(self.login_url)
@@ -68,6 +69,9 @@ class TestViews(TestCase):
         self.assertIsInstance(response.context['authForm'], AuthenticationForm)
       # self.assertEqual(response.context['login_error'], 'Username o password errati!')
 
+
+
+    """ TEST LOGOUT """
     def test_logout_view(self):
         self.client.login(username=self.username, password=self.password)
         response = self.client.get(self.logout_url)
@@ -75,6 +79,9 @@ class TestViews(TestCase):
         self.assertFalse('_auth_user_id' in self.client.session)
         self.assertEqual(response.status_code, 302)
 
+
+
+    """ TEST SIGNUP """
     def test_signup_view_GET(self):
         response = self.client.get(self.signup_url)
         self.assertEqual(response.status_code, 200)
@@ -104,6 +111,8 @@ class TestViews(TestCase):
         self.assertFalse(CustomUser.objects.filter(username=invalid_data['username']).exists())
 
 
+
+    """ TEST HOME PAGE """
     def test_user_home_page_GET(self):
         self.client.login(username=self.username, password=self.password)
         response = self.client.get(self.userHomePage_url)
@@ -144,3 +153,4 @@ class TestViews(TestCase):
         response = self.client.get(self.myTravels_url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'organizzatoreViaggi/myTravels.html')
+
