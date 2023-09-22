@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Travel, Invitation, Comment, Stage, Expense
 from django.db.models import Sum
+from datetime import datetime
 
 
 # Create your views here.
@@ -149,9 +150,18 @@ def changeItinerary_view(request, travel_id):
 
     if request.method == "POST":
         if "edit_travel" in request.POST:
+            # Crea una istanza del TravelForm associandola con il travel da modificare
             form = TravelForm(request.POST, instance=travel)
+            # Converto le stringhe in date
+            new_start_date = datetime.strptime(request.POST['start_date'], "%Y-%m-%d").date()
+            new_end_date = datetime.strptime(request.POST['end_date'],"%Y-%m-%d").date()
             if form.is_valid():
                 form.save()
+                # Controllo se le tappe sono nel range delle nuove date di viaggio
+                for stage in stages:
+                    if stage.date < new_start_date or stage.date > new_end_date:
+                        # Se non lo sono vengono eliminate
+                        stage.delete()
                 return redirect('myTravels')
         else:
             emptyStageForm = StageForm()
