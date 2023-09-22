@@ -37,7 +37,8 @@ class TestViews(TestCase):
         }
 
 
-    """ TEST LOGIN """
+
+    
     def test_login_view_GET(self):
         #simulazione richiesta di tipo get all'url specificato
         response = self.client.get(self.login_url)
@@ -71,7 +72,7 @@ class TestViews(TestCase):
 
 
 
-    """ TEST LOGOUT """
+
     def test_logout_view(self):
         self.client.login(username=self.username, password=self.password)
         response = self.client.get(self.logout_url)
@@ -81,7 +82,7 @@ class TestViews(TestCase):
 
 
 
-    """ TEST SIGNUP """
+
     def test_signup_view_GET(self):
         response = self.client.get(self.signup_url)
         self.assertEqual(response.status_code, 200)
@@ -112,7 +113,7 @@ class TestViews(TestCase):
 
 
 
-    """ TEST HOME PAGE """
+
     def test_user_home_page_GET(self):
         self.client.login(username=self.username, password=self.password)
         response = self.client.get(self.userHomePage_url)
@@ -153,4 +154,8 @@ class TestViews(TestCase):
         response = self.client.get(self.myTravels_url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'organizzatoreViaggi/myTravels.html')
+
+    def test_my_travels_POST(self):
+        self.client.login(username=self.username, password=self.password)
+        response = self.client.post(self.myTravels_url, )
 

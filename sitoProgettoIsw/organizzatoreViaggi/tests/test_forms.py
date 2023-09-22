@@ -1,12 +1,11 @@
 import unittest
 from django.test import Client, TestCase
-from organizzatoreViaggi.forms import CommentForm, InvitationForm, CreateUserForm, TravelForm, StageForm
+from organizzatoreViaggi.forms import ExpenseForm, CommentForm, InvitationForm, CreateUserForm, TravelForm, StageForm
 
 
 class TestForms(TestCase):
-
-
     """ TEST CREATE USER FORM """
+
     def test_create_user_form_valid_data(self):
         form = CreateUserForm(data={
             'username': 'user Test',
@@ -29,24 +28,22 @@ class TestForms(TestCase):
         })
         self.assertFalse(form.is_valid());
 
-
     """ TEST TRAVEL FORM """
+
     def test_travel_form_valid_data(self):
-        form = TravelForm(data= {
+        form = TravelForm(data={
             'name': 'Viaggio Test',
             'destination': 'Destinazione Test',
-            'start_date': '1/06/2024',
-            'end_date': '3/06/2024'
+            'start_date': '01/06/2024',
+            'end_date': '03/06/2024'
         })
         self.assertTrue(form.is_valid())
 
     def test_travel_form_invalid_data(self):
-        form = TravelForm(data= {
+        form = TravelForm(data={
             'name': 'Viaggio Test',
             'destination': 'Destinazione Test',
-            'start_date': '3/06/2024',
-            'end_date': '1/06/2024'
+            'start_date': '03/06/2024',
+            'end_date': '01/06/2024'
         })
         self.assertFalse(form.is_valid())
-
-
