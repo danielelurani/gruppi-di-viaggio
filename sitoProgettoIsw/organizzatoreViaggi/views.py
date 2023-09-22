@@ -228,6 +228,7 @@ def expenses_view(request, travel_id):
 
     return render(request, 'organizzatoreViaggi/expenses.html', context)
 
+# Funzione che aggiunge una spesa al viaggio
 def addExpense_view(request, travel_id):
 
     travel = Travel.objects.get(id = travel_id)
@@ -239,6 +240,18 @@ def addExpense_view(request, travel_id):
             price = form.cleaned_data['price']
             expense = Expense.objects.create(name = name, price = price, travel = travel)
             expense.save()
+
+    url = reverse('expenses', args=[travel_id])
+    return redirect(url)
+
+# Funzione che rimuove una spesa dalla lista
+def removeExpense_view(request, travel_id, expense_id):
+
+    if request.method == "POST":
+        expense_to_delete = Expense.objects.get(id = expense_id)
+        expense_to_delete.delete()
+        url = reverse('expenses', args=[travel_id])
+        return redirect(url)
 
     url = reverse('expenses', args=[travel_id])
     return redirect(url)

@@ -95,43 +95,22 @@
                            <h3>RIMUOVI SPESA</h3>
                        </div>
 
-                       <form class="rem-form" method="post" action="">
+                       {% for expense in expenses %}
+                       <form class="rem-form" method="post" action="{% url 'removeExpense' travel.id expense.id%}">
+                        {% csrf_token %}
                            <div class="rem-form-container">
                                <div class="rem-data">
-                                   <p class="rem-name">SPESA 1</p>
+                                   <p class="rem-name">{{expense.name}}</p>
                                    <p class="rem-div">-</p>
-                                   <p class="rem-price">10€</p>
+                                   <p class="rem-price">{{expense.price}} €</p>
                                </div>
 
                                 <div class="button-container-dx">
-                                    <input class="sub-button" type="submit" value="RIMUOVI SPESA" name="remove_stage">
-                                </div>
-                           </div>
-
-                           <div class="rem-form-container">
-                               <div class="rem-data">
-                                   <p class="rem-name">SPESA 2</p>
-                                   <p class="rem-div">-</p>
-                                   <p class="rem-price">20€</p>
-                               </div>
-
-                                <div class="button-container-dx">
-                                    <input class="sub-button" type="submit" value="RIMUOVI SPESA" name="remove_stage">
-                                </div>
-                           </div>
-
-                           <div class="rem-form-container">
-                               <div class="rem-data">
-                                   <p class="rem-name">SPESA 3</p>
-                                   <p class="rem-div">-</p>
-                                   <p class="rem-price">30€</p>
-                               </div>
-
-                                <div class="button-container-dx">
-                                    <input class="sub-button" type="submit" value="RIMUOVI SPESA" name="remove_stage">
+                                    <input class="sub-button" type="submit" value="RIMUOVI SPESA">
                                 </div>
                            </div>
                        </form>
+                       {% endfor %}
                     </div>
                 </div>
             </div>

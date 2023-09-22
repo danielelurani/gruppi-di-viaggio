@@ -13,5 +13,6 @@ urlpatterns = [
     path('organizzatoreViaggi/expenses/<int:travel_id>/', views.expenses_view, name='expenses'),
     path('organizzatoreViaggi/processInvitation_view/<int:inv_id>/', views.processInvitation_view, name='processInvitation'),
     path('organizzatoreViaggi/addComment_view/<int:travel_id>/', views.addComment_view, name='addComment'),
-    path('organizzatoreViaggi/addExpense_view/<int:travel_id>/', views.addExpense_view, name='addExpense')
+    path('organizzatoreViaggi/addExpense_view/<int:travel_id>/', views.addExpense_view, name='addExpense'),
+    path('organizzatoreViaggi/removeExpense_view/<int:travel_id>/<int:expense_id>/', views.removeExpense_view, name='removeExpense')
 ]
