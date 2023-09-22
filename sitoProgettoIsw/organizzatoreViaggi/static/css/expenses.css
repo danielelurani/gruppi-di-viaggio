@@ -361,21 +361,31 @@
     }
 
     /* RIMOZIONE SPESA */
-    .rem-form {
-        position: absolute;
-        top: 60px;
+    .rem-forms-c {
+        height: 85%;
+        width: 100%;
+        margin-top: 60px;
 
-        height: 80%;
-        width: 40%;
+        display: flex;
+        flex-direction: column;
         overflow: auto;
+
+    }
+
+    .rem-form {
+        height: 80px;
+        width: 100%;
+        padding-bottom: 20px;
+        margin-bottom: 10px;
+        border-bottom: dashed 1px black;
+    }
+
+    .rem-form:last-child {
+        border-bottom: none;
     }
 
     .rem-form-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        padding-bottom: 20px;
+        height: 80px;
     }
 
     .rem-data {
