@@ -145,6 +145,7 @@ def changeItinerary_view(request, travel_id):
     travel = Travel.objects.get(id = travel_id)
     form = TravelForm(instance=travel)
     stages = Stage.objects.filter(travel = travel_id)
+    emptyStageForm = StageForm()
 
     if request.method == "POST":
         if "edit_travel" in request.POST:
@@ -152,6 +153,8 @@ def changeItinerary_view(request, travel_id):
             if form.is_valid():
                 form.save()
                 return redirect('myTravels')
+        else:
+            emptyStageForm = StageForm()
 
         if "add_stage" in request.POST:
             emptyStageForm = StageForm(request.POST)
