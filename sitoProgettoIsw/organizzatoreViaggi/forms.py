@@ -41,7 +41,7 @@ class CommentForm(forms.Form):
 
 class ExpenseForm(forms.Form):
     name = forms.CharField(label = 'Nome spesa')
-    price = forms.FloatField(label = 'Costo')
+    price = forms.FloatField(min_value = 0.0, label = 'Costo')
 
 class InvitationForm(forms.Form):
     
