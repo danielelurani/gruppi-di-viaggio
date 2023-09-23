@@ -219,7 +219,7 @@ input[type="submit"] {
     border: 4px solid;
     background: black;
     border-radius: 20px;
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 18px;
     color: #e9f4fb;
     font-weight: 700;
@@ -401,4 +401,44 @@ button.close, button.accept {
 .alert .invitation-message {
     margin-top: -7px;
     font-size: 13px;
+}
+
+/* --- MESSAGGIO DI ERRORE --- */
+form .errorlist {
+    width: 80%;
+    margin: auto;
+
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+
+    border-bottom: solid 3px #ce1a2b;
+
+    margin-top: -20px;
+    margin-bottom: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    list-style-type: none;
+
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 15px;
+    text-align: center;
+
+    color: #CC2828;
+}
+
+form .errorlist li {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
