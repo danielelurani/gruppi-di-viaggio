@@ -28,7 +28,6 @@ def create_travel(driver):
     elem.send_keys("2023-03-01")
 
     elem = driver.find_element(By.NAME, "create_travel")
-    elem.clear()
     elem.send_keys(Keys.RETURN)
 
     time.sleep(3)
