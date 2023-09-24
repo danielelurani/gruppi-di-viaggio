@@ -76,3 +76,41 @@ input[type="submit"]:hover {
     text-decoration: underline;
 }
 
+/* --- MESSAGGIO DI ERRORE --- */
+form .errorlist {
+    width: 80%;
+    margin: auto;
+
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+
+    border-bottom: solid 3px #ce1a2b;
+
+    margin-top: 20px;
+    margin-bottom: -5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    list-style-type: none;
+
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 15px;
+    text-align: center;
+
+    color: #CC2828;
+}
+
+form .errorlist li {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
