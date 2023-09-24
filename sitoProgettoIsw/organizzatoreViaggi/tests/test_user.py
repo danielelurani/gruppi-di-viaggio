@@ -12,14 +12,9 @@ class TestViews(TestCase):
         self.logout_url = reverse('logout')  #fatto
         self.signup_url = reverse('signup')  #fatto da correggere invalid credentials
         self.userHomePage_url = reverse('userHomePage')  #fatto
-        self.myTravels_url = reverse('myTravels')
-        self.changeItinerary_url = reverse('changeItinerary', kwargs={'travel_id':1})
-        self.detailsTravel_url = reverse('detailsTravel', kwargs={'travel_id': 1})
-        self.invite_url = reverse('invite')
-        #self.processIvitation_url = reverse('processInvitation', wargs={'inv_id': 1})
-        #self.addComment_url = reverse('addComment', kwargs={'inv_id': 1})
 
-        #Utente di test
+
+        #Utente test di autenticazione
         self.username = 'testuser'
         self.password = 'Testpassword#1'
         self.user = CustomUser.objects.create_user(
@@ -36,9 +31,27 @@ class TestViews(TestCase):
             'last_name': 'Test',
         }
 
+        self.invalid_data = {
+            'username': 'wronguser',
+            'password1': 'Testpassword#1',
+            'password2': 'DifferentPassword#1',
+            'email': 'testuser@test.com',
+            'first_name': 'Test',
+            'last_name': 'Test',
+        }
+
+    def test_user_existence(self):
+        self.assertTrue(CustomUser.objects.filter(username=self.user.username).exists())
+
+    def test_create_user_form_valid_data(self):
+        form = CreateUserForm(data=self.valid_data)
+        self.assertTrue(form.is_valid())
+
+    def test_create_user_form_invalid_data(self):
+        form = CreateUserForm(data=self.invalid_data)
+        self.assertFalse(form.is_valid())
 
 
-    
     def test_login_view_GET(self):
         #simulazione richiesta di tipo get all'url specificato
         response = self.client.get(self.login_url)
@@ -97,19 +110,12 @@ class TestViews(TestCase):
         self.assertTrue(CustomUser.objects.filter(username=self.valid_data['username']).exists())
 
     def test_signup_view_POST_invalid_form(self):
-        invalid_data = {
-            'username': 'wronguser',
-            'password1': 'Testpassword#1',
-            'password2': 'DifferentPassword#1',
-            'email': 'testuser@test.com',
-            'first_name': 'Test',
-            'last_name': 'Test',
-        }
-        response = self.client.post(self.signup_url, invalid_data)
+
+        response = self.client.post(self.signup_url, self.invalid_data)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'organizzatoreViaggi/signup.html')
         self.assertFalse(response.context['form'].is_valid())
-        self.assertFalse(CustomUser.objects.filter(username=invalid_data['username']).exists())
+        self.assertFalse(CustomUser.objects.filter(username=self.invalid_data['username']).exists())
 
 
 
@@ -147,15 +153,4 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, 'organizzatoreViaggi/userHomePage.html')
         self.assertFalse(response.context['form'].is_valid())
         self.assertFalse(Travel.objects.filter(name='wrongViaggioTest').exists())
-
-
-    def test_my_travels_GET(self):
-        self.client.login(username=self.username, password=self.password)
-        response = self.client.get(self.myTravels_url)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'organizzatoreViaggi/myTravels.html')
-
-    def test_my_travels_POST(self):
-        self.client.login(username=self.username, password=self.password)
-        response = self.client.post(self.myTravels_url, )
 
