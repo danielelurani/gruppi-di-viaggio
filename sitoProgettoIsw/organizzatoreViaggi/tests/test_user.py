@@ -8,10 +8,11 @@ from django.contrib.auth.forms import AuthenticationForm
 class TestViews(TestCase):
     def setUp(self):
         self.client = Client()
-        self.login_url = reverse('login')    #fatto
-        self.logout_url = reverse('logout')  #fatto
-        self.signup_url = reverse('signup')  #fatto da correggere invalid credentials
-        self.userHomePage_url = reverse('userHomePage')  #fatto
+        self.login_url = reverse('login')
+        self.logout_url = reverse('logout')
+        self.signup_url = reverse('signup')
+        self.userHomePage_url = reverse('userHomePage')
+        self.myTravels_url = reverse('myTravels')
 
 
         #Utente test di autenticazione
@@ -53,25 +54,20 @@ class TestViews(TestCase):
 
 
     def test_login_view_GET(self):
-        #simulazione richiesta di tipo get all'url specificato
         response = self.client.get(self.login_url)
-        #verifica che lo status code sia 200, ovvero quello di successo
         self.assertEqual(response.status_code, 200)
-        #verifica che il template risultato dalla richiesta sia effettivamente quello di login
         self.assertTemplateUsed(response, 'organizzatoreViaggi/login.html')
         self.assertIsInstance(response.context['authForm'], AuthenticationForm)
 
 
     def test_login_view_POST_success(self):
-        # simulazione richiesta di tipo post all'url specificato
         response = self.client.post(self.login_url, {
             'username': self.username,
             'password': self.password
         })
-        #verifica che la richiesta di tipo post riconduca alla home
         self.assertRedirects(response, self.userHomePage_url)
-        # verifica che lo status code sia 302, ovvero quello di reindirizamento
         self.assertEqual(response.status_code, 302)
+
 
     def test_login_view_POST_invalid_credentials(self):
         response = self.client.post(self.login_url, {
@@ -81,8 +77,8 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response,  'organizzatoreViaggi/login.html')
         self.assertIsInstance(response.context['authForm'], AuthenticationForm)
-      # self.assertEqual(response.context['login_error'], 'Username o password errati!')
-
+        self.assertIn('login_error', response.context)
+        self.assertEqual(response.context['login_error'], 'Username o password errati!')
 
 
 

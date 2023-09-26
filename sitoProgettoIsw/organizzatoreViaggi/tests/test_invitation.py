@@ -1,5 +1,6 @@
 import unittest
-from django.test import TestCase
+from django.test import TestCase, Client
+from django.urls import reverse
 from organizzatoreViaggi.forms import CreateUserForm, TravelForm, InvitationForm
 from organizzatoreViaggi.models import CustomUser, Travel, Invitation
 
@@ -10,9 +11,11 @@ class test_invitation(TestCase):
     def setUpClass(self):
 
         super().setUpClass()
+        self.client = Client()
 
         self.user1 = CustomUser.objects.create_user(username='test1', email='test1@test.com')
         self.user2 = CustomUser.objects.create_user(username='test2', email='test2@test.com')
+
 
         self.travel = Travel.objects.create(
             name='Viaggio Test',
@@ -29,15 +32,11 @@ class test_invitation(TestCase):
         self.assertIn(self.user1, self.travel.participants.all())
 
     def test_valid_data(self):
+        self.client.login(username=self.user1.username, password=self.user1.password)
         form = InvitationForm(sender=self.user1,
                               data={'receiver': self.user2.email, 'travel': self.travel})
         self.assertTrue(form.is_valid())
 
-        wrong_email = 'non_existing_email@email.com'
-
-        form = InvitationForm(sender=self.user1,
-                              data={'receiver': wrong_email, 'travel': self.travel})
-        self.assertFalse(form.is_valid())
 
     def test_invitation_form_invalid_data(self):
         non_existing_email = 'non_existing_email@email.com'
@@ -63,5 +62,4 @@ class test_invitation(TestCase):
         self.assertFalse(form.is_valid())
         self.assertNotIn(self.user2, self.travel.participants.all())
         self.assertEqual(inv, Invitation.objects.get(receiver=self.user2.email, travel=self.travel))
-
 
