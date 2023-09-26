@@ -97,12 +97,15 @@ def send_invite(driver):
 def choose_invite(driver):
     elem = driver.find_element(By.NAME, "receiver")
     elem.clear()
-    elem.send_keys("admin@admin.com") ##AGGIUNGI EMAIL ESEMPIO A CUI MANDARE INVITO
+    elem.send_keys("daniele@tiscali.it")
 
     elem = driver.find_element(By.NAME, "travel")
     elem.send_keys("Ac")
 
     elem = driver.find_element(By.NAME, "send")
+    elem.click()
+
+    elem = driver.find_element(By.XPATH, "//a[1]")
     elem.click()
 
     time.sleep(3)
@@ -128,7 +131,17 @@ def form_expense(driver):
     time.sleep(3)
 
 def remove_expense(driver):
-    elem = driver.find_element(By.NAME, "remove")  ##AGGIUNGI NAME send ALL TASTO MANDA INVITO
+    elem = driver.find_element(By.NAME, "remove")
+    elem.click()
+
+    time.sleep(3)
+
+def write_comment(driver):
+    elem = driver.find_element(By.ID, "id_content")
+    elem.clear()
+    elem.send_keys("Commento mandato dal test")
+
+    elem = driver.find_element(By.NAME, "commenta")
     elem.click()
 
     time.sleep(3)

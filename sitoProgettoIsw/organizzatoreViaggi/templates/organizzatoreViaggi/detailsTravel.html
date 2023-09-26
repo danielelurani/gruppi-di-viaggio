@@ -141,7 +141,8 @@
                         <form action="{% url 'addComment' travel.id %}" method="post">
                             {% csrf_token %}
                             {{ commentForm }}
-                            <input 
+                            <input
+                                name="commenta"
                                 type="image" 
                                 src="{% static 'images/invitation_icon.png' %}" 
                                 class="send" 
