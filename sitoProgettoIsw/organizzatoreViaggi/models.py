@@ -21,12 +21,12 @@ class Travel(models.Model):
 class Stage(models.Model):
     id = models.AutoField(primary_key=True)
     travel = models.ForeignKey(Travel, on_delete=models.CASCADE)
-    name = models.CharField(max_length=64)
+    name_stage = models.CharField(max_length=64)
     description = models.CharField(max_length=128)
     date = models.DateField()
 
     def __str__ (self):
-        return self.name
+        return self.name_stage
 
 class Comment(models.Model):
     id = models.AutoField(primary_key=True)

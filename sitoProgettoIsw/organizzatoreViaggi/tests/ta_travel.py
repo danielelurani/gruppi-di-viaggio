@@ -1,8 +1,7 @@
 import time
-from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-import selenium.webdriver.support.select
+from selenium import webdriver
 
 
 def mytravel(driver):
@@ -34,18 +33,13 @@ def create_travel(driver):
     time.sleep(3)
 
 def details_travel(driver):
-    elem = driver.find_element(By.XPATH, "//a[3]")
-    elem.click()
+    driver.get('http://localhost:8000/organizzatoreViaggi/detailsTravel/24/')
 
-    time.sleep(1)
-
-def modify_travel(driver):
-    elem = driver.find_element(By.XPATH, "//a[3]")
-    elem.click()
-
-    time.sleep(1)
+    time.sleep(3)
 
 def form_modify_travel(driver):
+    driver.get('http://localhost:8000/organizzatoreViaggi/changeItinerary/24/')
+
     elem = driver.find_element(By.NAME, "name")
     elem.clear()
     elem.send_keys("Modifica")
@@ -65,10 +59,12 @@ def form_modify_travel(driver):
     elem = driver.find_element(By.NAME, "edit_travel")
     elem.send_keys(Keys.RETURN)
 
-    time.sleep(1)
+    time.sleep(3)
 
 def form_create_location(driver):
-    elem = driver.find_element(By.NAME, "name")
+    driver.get('http://localhost:8000/organizzatoreViaggi/changeItinerary/24/')
+
+    elem = driver.find_element(By.NAME, "name_stage")
     elem.clear()
     elem.send_keys("Tappa")
 
@@ -80,35 +76,59 @@ def form_create_location(driver):
     elem.clear()
     elem.send_keys("2023-02-25")
 
-    time.sleep(1)
+    elem = driver.find_element(By.NAME, "add_stage")
+    elem.click()
+
+    time.sleep(3)
 
 def form_delete_location(driver):
+    driver.get('http://localhost:8000/organizzatoreViaggi/changeItinerary/24/')
+
     elem = driver.find_element(By.NAME, "remove_stage")
     elem.send_keys(Keys.RETURN)
 
-    time.sleep(1)
+    time.sleep(3)
 
 def send_invite(driver):
-    elem = driver.find_element(By.XPATH, "//a[4]")
-    elem.click()
+    driver.get('http://localhost:8000/organizzatoreViaggi/invite')
 
-    time.sleep(1)
+    time.sleep(3)
 
 def choose_invite(driver):
     elem = driver.find_element(By.NAME, "receiver")
     elem.clear()
-    elem.send_keys("ESEMPIO EMAIL") ##AGGIUNGI EMAIL ESEMPIO A CUI MANDARE INVITO
+    elem.send_keys("admin@admin.com") ##AGGIUNGI EMAIL ESEMPIO A CUI MANDARE INVITO
 
     elem = driver.find_element(By.NAME, "travel")
-    elem.send_keys("p")
+    elem.send_keys("Ac")
 
-    elem = driver.find_element(By.XPATH, "//a[4]")
+    elem = driver.find_element(By.NAME, "send")
     elem.click()
 
-    time.sleep(1)
+    time.sleep(3)
 
 def modify_expense(driver):
-    elem = driver.find_element(By.NAME, "send") ##AGGIUNGI NAME send ALL TASTO MANDA INVITO
+    elem = driver.find_element(By.NAME, "spese")
     elem.click()
 
-    time.sleep(1)
+    time.sleep(3)
+
+def form_expense(driver):
+    elem = driver.find_element(By.NAME, "name")
+    elem.clear()
+    elem.send_keys("esempio")
+
+    elem = driver.find_element(By.NAME, "price")
+    elem.clear()
+    elem.send_keys("10.5")
+
+    elem = driver.find_element(By.NAME, "aggiungi")
+    elem.click()
+
+    time.sleep(3)
+
+def remove_expense(driver):
+    elem = driver.find_element(By.NAME, "remove")  ##AGGIUNGI NAME send ALL TASTO MANDA INVITO
+    elem.click()
+
+    time.sleep(3)

@@ -68,7 +68,7 @@
 
                             {% for stage in stages %}
                             <td colspan="200" class="itinerary-item">
-                                <p>{{ stage.name }}</p>
+                                <p>{{ stage.name_stage }}</p>
                                 <p>{{ stage.description }}</p>
                                 <p>{{ stage.date }}</p>
                             </td>
@@ -94,7 +94,7 @@
 
                     <div class="button-expenses">
                         <a href="{% url 'expenses' travel.id %}">
-                            <button type="button" data-dismiss="alert" aria-hidden="true">Gestisci Spese</button>
+                            <button type="button" name="spese" data-dismiss="alert" aria-hidden="true">Gestisci Spese</button>
                         </a>
                     </div>
                 </div>

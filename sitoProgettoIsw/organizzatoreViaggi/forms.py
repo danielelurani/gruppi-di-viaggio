@@ -9,12 +9,12 @@ class StageForm(ModelForm):
     class Meta:
         model = Stage
         fields = [
-            'name',
+            'name_stage',
             'description',
             'date'
         ]
         labels = {
-            'name': 'Nome Tappa',
+            'name_stage': 'Nome Tappa',
             'description': 'Descrizione',
             'date': 'Data'
         }
