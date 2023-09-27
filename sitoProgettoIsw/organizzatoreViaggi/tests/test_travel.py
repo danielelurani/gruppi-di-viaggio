@@ -12,9 +12,8 @@ class TestTravel(TestCase):
     def setUp(self):
 
         self.client = Client()
-        self.userHomePage_url = reverse('userHomePage')  # fatto
+        self.userHomePage_url = reverse('userHomePage')
         self.myTravels_url = reverse('myTravels')
-
 
         self.username= 'testuser'
         self.password= 'testpassword'
@@ -104,3 +103,4 @@ class TestTravel(TestCase):
             'stage_id': self.stage.id,
         })
         self.assertRedirects(response, reverse('detailsTravel', args=[self.travel.id]))
+        self.assertFalse(Stage.objects.filter(id=self.stage.id).exists())
