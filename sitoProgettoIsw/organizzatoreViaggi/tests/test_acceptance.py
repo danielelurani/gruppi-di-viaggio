@@ -4,11 +4,12 @@ from selenium.webdriver.common.by import By
 
 import ta_log
 import ta_travel
+import ta_travel_error
 
 driver = webdriver.Firefox()
 driver.get("http://localhost:8000")
 
-##Test creazione sito
+##Test creazione viaggio
 ta_log.login(driver)
 ta_travel.create_travel(driver)
 ta_travel.mytravel(driver)
@@ -47,4 +48,27 @@ ta_log.login(driver)
 ta_travel.mytravel(driver)
 ta_travel.details_travel(driver)
 ta_travel.write_comment(driver)
+ta_log.logout(driver)
+
+##Test creazione viaggio errato
+ta_log.login(driver)
+ta_travel_error.travel_void(driver)
+ta_travel_error.travel_wrong_date(driver)
+ta_log.logout(driver)
+
+##Test modifica viaggio errata
+ta_log.login(driver)
+ta_travel.mytravel(driver)
+ta_travel.details_travel(driver)
+ta_travel_error.modify_travel_void(driver)
+ta_travel_error.add_empty_location(driver)
+ta_log.logout(driver)
+
+##Test modifica spese errate
+ta_log.login(driver)
+ta_travel.mytravel(driver)
+ta_travel.details_travel(driver)
+ta_travel.modify_expense(driver)
+ta_travel_error.empty_expense(driver)
+ta_travel_error.negative_expense(driver)
 ta_log.logout(driver)
