@@ -9,12 +9,7 @@ class CustomUser(AbstractUser):
 
 class Travel(models.Model):
     name = models.CharField(max_length=64, unique=True)
-
-    if name == "QWERTY":
-        id = models.IntegerField(default=1, primary_key=True)
-    else:
-        id = models.AutoField(primary_key=True)
-
+    id = models.AutoField(primary_key=True)
     destination = models.CharField(max_length=64)
     start_date = models.DateField()
     end_date = models.DateField()
