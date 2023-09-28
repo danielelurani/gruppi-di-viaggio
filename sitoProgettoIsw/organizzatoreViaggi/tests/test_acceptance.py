@@ -7,6 +7,12 @@ import ta_travel
 import ta_travel_error
 
 driver = webdriver.Firefox()
+driver.get("http://localhost:8000/organizzatoreViaggi/signup")
+
+##Test creazione viaggio
+ta_log.register(driver)
+
+driver = webdriver.Firefox()
 driver.get("http://localhost:8000")
 
 ##Test creazione viaggio
