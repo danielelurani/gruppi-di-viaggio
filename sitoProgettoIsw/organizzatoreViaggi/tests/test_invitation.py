@@ -1,7 +1,6 @@
 import unittest
 from django.test import TestCase, Client
-from django.urls import reverse
-from organizzatoreViaggi.forms import CreateUserForm, TravelForm, InvitationForm
+from organizzatoreViaggi.forms import  InvitationForm
 from organizzatoreViaggi.models import CustomUser, Travel, Invitation
 
 
@@ -31,7 +30,7 @@ class test_invitation(TestCase):
         self.assertTrue(Travel.objects.filter(name=self.travel.name).exists())
         self.assertIn(self.user1, self.travel.participants.all())
 
-    def test_valid_data(self):
+    def test_invitation_form_valid_data(self):
         self.client.login(username=self.user1.username, password=self.user1.password)
         form = InvitationForm(sender=self.user1,
                               data={'receiver': self.user2.email, 'travel': self.travel})

@@ -1,7 +1,7 @@
 import unittest
 from django.test import Client, TestCase
-from organizzatoreViaggi.forms import CreateUserForm, TravelForm, InvitationForm, CommentForm, ExpenseForm
-from organizzatoreViaggi.models import CustomUser, Travel, Invitation, Stage, Comment, Expense
+from organizzatoreViaggi.forms import ExpenseForm
+from organizzatoreViaggi.models import CustomUser, Travel, Expense
 from django.urls import reverse
 
 
@@ -32,16 +32,30 @@ class TestExpenses(TestCase):
             price= 20
         )
 
-    def test_create_expense(self):
-        self.client.login(username=self.username, password=self.password)
-        valid_data = {
+        self.valid_data = {
             'travel': self.travel,
             'name': 'Spesa Test 1',
             'price': 10
         }
-        form = ExpenseForm(data=valid_data)
+
+        self.invalid_data = {
+            'travel': self.travel,
+            'name': 'Spesa Test 2',
+            'price': -10
+        }
+
+
+    def test_expense_form_valid_data(self):
+        form = ExpenseForm(data=self.valid_data)
         self.assertTrue(form.is_valid())
-        response = self.client.post(reverse('addExpense', args=[self.travel.id]), valid_data)
+
+    def test_expense_form_invalid_data(self):
+        form = ExpenseForm(data=self.invalid_data)
+        self.assertFalse(form.is_valid())
+
+    def test_create_expense(self):
+        self.client.login(username=self.username, password=self.password)
+        response = self.client.post(reverse('addExpense', args=[self.travel.id]),self.valid_data)
         self.assertEqual(response.status_code, 302)
         expense = Expense.objects.get(id=2)
         self.assertEqual(expense.name, 'Spesa Test 1')

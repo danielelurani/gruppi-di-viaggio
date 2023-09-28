@@ -44,11 +44,11 @@ class TestViews(TestCase):
     def test_user_existence(self):
         self.assertTrue(CustomUser.objects.filter(username=self.user.username).exists())
 
-    def test_create_user_form_valid_data(self):
+    def test_user_form_valid_data(self):
         form = CreateUserForm(data=self.valid_data)
         self.assertTrue(form.is_valid())
 
-    def test_create_user_form_invalid_data(self):
+    def test_user_form_invalid_data(self):
         form = CreateUserForm(data=self.invalid_data)
         self.assertFalse(form.is_valid())
 

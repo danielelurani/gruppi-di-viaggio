@@ -5,6 +5,7 @@ from django.forms import ModelForm, TextInput, PasswordInput, EmailInput
 from .models import CustomUser, Travel, Invitation, Stage
 from django.core.exceptions import ObjectDoesNotExist
 
+
 class StageForm(ModelForm):
     class Meta:
         model = Stage

@@ -1,9 +1,8 @@
 import unittest
 from django.test import Client, TestCase
-from organizzatoreViaggi.forms import CreateUserForm, TravelForm, InvitationForm
-from organizzatoreViaggi.models import CustomUser, Travel, Invitation, Stage
+from organizzatoreViaggi.forms import TravelForm
+from organizzatoreViaggi.models import CustomUser, Travel, Stage
 from django.urls import reverse
-
 
 
 class TestTravel(TestCase):
@@ -31,7 +30,7 @@ class TestTravel(TestCase):
         )
 
         self.stage = Stage.objects.create(
-            name='Tappa Test',
+            name_stage='Tappa Test',
             date= '2024-06-03',
             travel=self.travel
         )
