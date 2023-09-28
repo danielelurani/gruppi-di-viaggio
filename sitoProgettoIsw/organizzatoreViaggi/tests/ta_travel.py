@@ -1,6 +1,7 @@
 import time
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
 
 def mytravel(driver):
@@ -32,12 +33,19 @@ def create_travel(driver):
     time.sleep(3)
 
 def details_travel(driver):
-    driver.get('http://localhost:8000/organizzatoreViaggi/detailsTravel/24/')
+    driver.get("http://localhost:8000/organizzatoreViaggi/detailsTravel/29/")
+
+    time.sleep(3)
+
+def modify_travel(driver):
+    driver.get("http://localhost:8000/organizzatoreViaggi/changeItinerary/29/")
 
     time.sleep(3)
 
 def form_modify_travel(driver):
-    driver.get('http://localhost:8000/organizzatoreViaggi/changeItinerary/24/')
+    driver.get("http://localhost:8000/organizzatoreViaggi/changeItinerary/29/")
+
+    time.sleep(3)
 
     elem = driver.find_element(By.NAME, "name")
     elem.clear()
@@ -61,7 +69,7 @@ def form_modify_travel(driver):
     time.sleep(3)
 
 def form_create_location(driver):
-    driver.get('http://localhost:8000/organizzatoreViaggi/changeItinerary/24/')
+    driver.get('http://localhost:8000/organizzatoreViaggi/changeItinerary/29/')
 
     elem = driver.find_element(By.NAME, "name_stage")
     elem.clear()
@@ -81,7 +89,7 @@ def form_create_location(driver):
     time.sleep(3)
 
 def form_delete_location(driver):
-    driver.get('http://localhost:8000/organizzatoreViaggi/changeItinerary/24/')
+    driver.get('http://localhost:8000/organizzatoreViaggi/changeItinerary/29/')
 
     elem = driver.find_element(By.NAME, "remove_stage")
     elem.send_keys(Keys.RETURN)

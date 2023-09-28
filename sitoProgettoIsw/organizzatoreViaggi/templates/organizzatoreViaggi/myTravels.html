@@ -76,7 +76,7 @@
                                 </a>
                             </div>
 
-                            <a class="edit-button" aria-hidden="true" href="{% url 'changeItinerary' travel.id %}">
+                            <a class="edit-button" aria-hidden="true" id="{% url 'changeItinerary' travel.id %}" href="{% url 'changeItinerary' travel.id %}">
                                 <img src="{% static 'images/edit_icon.png' %}" />
                             </a>
                         </div>

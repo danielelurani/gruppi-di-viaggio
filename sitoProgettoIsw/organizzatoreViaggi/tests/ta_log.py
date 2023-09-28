@@ -28,9 +28,11 @@ def register(driver):
     elem.clear()
     elem.send_keys("banan3Fritte")
 
+    time.sleep(3)
+
     elem.send_keys(Keys.RETURN)
 
-    time.sleep(1)
+    time.sleep(3)
 
 def login(driver):
     elem = driver.find_element(By.NAME, "username")
