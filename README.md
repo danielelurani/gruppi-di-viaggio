@@ -13,3 +13,18 @@ Utenti Base
   * Username: d.lurani
   * Passwrod: ciao12345
   * Email: daniele@tiscali.it
+
+* Riccardo Senes
+ * Username: r.senes
+ * Passwrod: ciao12345
+ * Email: riccardo@tiscali.it
+
+* Emanuele Frau
+ * Username: e.frau
+ * Passwrod: ciao12345
+ * Email: emanuele@tiscali.it
+
+* Fabio Sanna
+ * Username: f.sanna
+ * Passwrod: ciao12345
+ * Email: fabio@tiscali.it
