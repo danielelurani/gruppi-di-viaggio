@@ -48,7 +48,8 @@ def travel_wrong_date(driver):
     time.sleep(3)
 
 def modify_travel_void(driver):
-    driver.get('http://localhost:8000/organizzatoreViaggi/changeItinerary/24/')
+    elem = driver.find_element(By.XPATH, "/html/body/div/div/div[3]/div[1]/a/button")
+    elem.click()
 
     elem = driver.find_element(By.NAME, "name")
     elem.clear()
@@ -70,7 +71,8 @@ def modify_travel_void(driver):
     ##assert "Compila questo campo" in driver.page_source
 
 def add_empty_location(driver):
-    driver.get('http://localhost:8000/organizzatoreViaggi/changeItinerary/24/')
+    #elem = driver.find_element(By.XPATH, "/html/body/div/div/div[3]/div[1]/a/button")
+    #elem.click()
 
     elem = driver.find_element(By.NAME, "name_stage")
     elem.clear()

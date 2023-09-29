@@ -3,6 +3,9 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
+
 
 def mytravel(driver):
     elem = driver.find_element(By.XPATH, "//a[1]")
@@ -13,11 +16,11 @@ def mytravel(driver):
 def create_travel(driver):
     elem = driver.find_element(By.NAME, "name")
     elem.clear()
-    elem.send_keys("Accettazione")
+    elem.send_keys("AAAAA")
 
     elem = driver.find_element(By.NAME, "destination")
     elem.clear()
-    elem.send_keys("Destinazione")
+    elem.send_keys("BBBBB")
 
     elem = driver.find_element(By.NAME, "start_date")
     elem.clear()
@@ -32,28 +35,23 @@ def create_travel(driver):
 
     time.sleep(3)
 
-def details_travel(driver):
-    driver.get("http://localhost:8000/organizzatoreViaggi/detailsTravel/29/")
+def details_travel(driver, trip_id):
+    elem = driver.find_element(By.XPATH, "/html/body/div/div/div/div/div/div[3]/div[6]/a/p")
+    elem.click()
 
     time.sleep(3)
 
-def modify_travel(driver):
-    driver.get("http://localhost:8000/organizzatoreViaggi/changeItinerary/29/")
-
-    time.sleep(3)
-
-def form_modify_travel(driver):
-    driver.get("http://localhost:8000/organizzatoreViaggi/changeItinerary/29/")
-
-    time.sleep(3)
+def form_modify_travel(driver, trip_id):
+    elem = driver.find_element(By.XPATH, "/html/body/div/div/div[3]/div[1]/a/button")
+    elem.click()
 
     elem = driver.find_element(By.NAME, "name")
     elem.clear()
-    elem.send_keys("Modifica")
+    elem.send_keys("CCCCC")
 
     elem = driver.find_element(By.NAME, "destination")
     elem.clear()
-    elem.send_keys("Modifica")
+    elem.send_keys("DDDDD")
 
     elem = driver.find_element(By.NAME, "start_date")
     elem.clear()
@@ -68,12 +66,13 @@ def form_modify_travel(driver):
 
     time.sleep(3)
 
-def form_create_location(driver):
-    driver.get('http://localhost:8000/organizzatoreViaggi/changeItinerary/29/')
+def form_create_location(driver, trip_id):
+    elem = driver.find_element(By.XPATH, "/html/body/div/div/div[3]/div[1]/a/button")
+    elem.click()
 
     elem = driver.find_element(By.NAME, "name_stage")
     elem.clear()
-    elem.send_keys("Tappa")
+    elem.send_keys("Tappa prova")
 
     elem = driver.find_element(By.NAME, "description")
     elem.clear()
@@ -88,8 +87,9 @@ def form_create_location(driver):
 
     time.sleep(3)
 
-def form_delete_location(driver):
-    driver.get('http://localhost:8000/organizzatoreViaggi/changeItinerary/29/')
+def form_delete_location(driver, trip_id):
+    elem = driver.find_element(By.XPATH, "/html/body/div/div/div[3]/div[1]/a/button")
+    elem.click()
 
     elem = driver.find_element(By.NAME, "remove_stage")
     elem.send_keys(Keys.RETURN)
@@ -107,7 +107,7 @@ def choose_invite(driver):
     elem.send_keys("daniele@tiscali.it")
 
     elem = driver.find_element(By.NAME, "travel")
-    elem.send_keys("Ac")
+    elem.send_keys("CCC")
 
     elem = driver.find_element(By.NAME, "send")
     elem.click()
