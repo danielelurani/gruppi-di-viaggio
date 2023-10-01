@@ -47,15 +47,15 @@ def form_modify_travel(driver, trip_id):
 
     elem = driver.find_element(By.NAME, "name")
     elem.clear()
-    elem.send_keys("CCCCC")
+    elem.send_keys("AAACC")
 
     elem = driver.find_element(By.NAME, "destination")
     elem.clear()
-    elem.send_keys("DDDDD")
+    elem.send_keys("BBBDD")
 
     elem = driver.find_element(By.NAME, "start_date")
     elem.clear()
-    elem.send_keys("2023-01-10")
+    elem.send_keys("2023-01-09")
 
     elem = driver.find_element(By.NAME, "end_date")
     elem.clear()

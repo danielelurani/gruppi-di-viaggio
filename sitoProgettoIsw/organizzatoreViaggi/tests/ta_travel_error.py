@@ -19,8 +19,6 @@ def travel_void(driver):
     elem = driver.find_element(By.NAME, "create_travel")
     elem.send_keys(Keys.RETURN)
 
-    ##assert "Compila questo campo" in driver.page_source
-
     time.sleep(3)
 
 def travel_wrong_date(driver):
@@ -42,8 +40,6 @@ def travel_wrong_date(driver):
 
     elem = driver.find_element(By.NAME, "create_travel")
     elem.send_keys(Keys.RETURN)
-
-    ##assert "La data di fine viaggio non può essere antecedente alla partenza" in driver.page_source
 
     time.sleep(3)
 
@@ -68,12 +64,7 @@ def modify_travel_void(driver):
 
     time.sleep(3)
 
-    ##assert "Compila questo campo" in driver.page_source
-
 def add_empty_location(driver):
-    #elem = driver.find_element(By.XPATH, "/html/body/div/div/div[3]/div[1]/a/button")
-    #elem.click()
-
     elem = driver.find_element(By.NAME, "name_stage")
     elem.clear()
 
@@ -88,21 +79,9 @@ def add_empty_location(driver):
 
     time.sleep(3)
 
-    ##assert "Compila questo campo" in driver.page_source
-
-def wrong_invite(driver):
-    elem = driver.find_element(By.NAME, "send")
-    elem.click()
-
-    ##assert "Compila questo campo" in driver.page_source
-
-    time.sleep(3)
-
 def empty_expense(driver):
     elem = driver.find_element(By.NAME, "aggiungi")
     elem.click()
-
-    ##assert "Compila questo campo" in driver.page_source
 
     time.sleep(3)
 
@@ -117,7 +96,5 @@ def negative_expense(driver):
 
     elem = driver.find_element(By.NAME, "aggiungi")
     elem.click()
-
-    ##assert "Il valore deve essere superiore" in driver.page_source
 
     time.sleep(3)
