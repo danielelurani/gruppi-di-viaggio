@@ -5,7 +5,7 @@ from organizzatoreViaggi.forms import CreateUserForm, TravelForm
 from organizzatoreViaggi.models import CustomUser, Travel
 from django.contrib.auth.forms import AuthenticationForm
 
-class TestViews(TestCase):
+class TestUser(TestCase):
     def setUp(self):
         self.client = Client()
         self.login_url = reverse('login')
