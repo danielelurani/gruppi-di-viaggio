@@ -1,7 +1,6 @@
-# Gruppi di Viaggio
-Progetto ISW 2022-2023</br>
-TO-DO Google Doc: [Link](https://docs.google.com/document/d/1K-xBeLqB_VjUepZwRd2YcBgBffKpDskbBILe8z2zCMw/edit)</br>
-Presentazione: [Link](https://docs.google.com/presentation/d/1GnLhicdItnqArM5C5izIvN3S6u_-ZBKeMW10pUEE6ns/edit?usp=sharing)</br>
+# Gruppi di Viaggio - Progetto ISW 2022-2023
+Applicazione web per la gestione di gruppi di viaggio sviluppata con Django.</br>
+
 </br>
 SuperUser: 
 * Username : admin
