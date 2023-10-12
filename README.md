@@ -1,6 +1,5 @@
 # Gruppi di Viaggio - Progetto ISW 2022-2023
 Applicazione web per la gestione di gruppi di viaggio sviluppata con Django.</br>
-
 </br>
 SuperUser: 
 * Username : admin
